@@ -1,0 +1,15 @@
+<h1>Germinacao Taxas</h1>
+
+<%= link_to 'Nova Taxa', new_admin_germinacao_taxa_path %>
+</br></br>
+<table>
+  <% for germinacao_taxa in @germinacao_taxas %>
+	<tr>
+    <td> <%= germinacao_taxa.taxa    %></td> 
+    <td><%= link_to 'Ver', [:admin, germinacao_taxa] %></td>
+    <td><%= link_to 'Editar', edit_admin_germinacao_taxa_path(germinacao_taxa) %></td>
+    <td><%= link_to 'Excluir', [:admin,germinacao_taxa], confirm: 'Excluir?', method: :delete %></td>
+	</tr>
+  <% end %>
+</table>
+<%= will_paginate @germinacao_taxas %>

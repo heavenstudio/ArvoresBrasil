@@ -1,0 +1,15 @@
+<h1>Familias</h1>
+
+<%= link_to 'Nova Família', new_admin_familia_path %>
+</br></br>
+<table>
+  <% for familia in @familias %>
+	<tr>
+	<td> <%= familia.id %></td> 
+    <td> <%= familia.nome    %></td> 
+    <td><%= link_to 'Editar', edit_admin_familia_path(familia) %></td>
+    <td><%= link_to 'X', [:admin,familia], confirm: 'Confirma a exclusão?', method: :delete %></td>
+	</tr>
+  <% end %>
+</table>
+<%= will_paginate @familias %>

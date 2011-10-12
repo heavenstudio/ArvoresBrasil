@@ -1,0 +1,12 @@
+<%= form_for([:admin, @extincao]) do |f| %>
+<%= render 'shared/error_messages', :object => f.object %>
+
+  <div>
+    <%= f.label :grau %>
+    <%= f.text_field :grau %>
+  </div>
+
+  <div>
+    <%= f.submit %>
+  </div>
+<% end %>

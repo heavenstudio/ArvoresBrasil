@@ -1,0 +1,7 @@
+<h1>Árvores</h1>
+
+<% for arvore in @arvores %>
+  <div class="arvore">
+    <%= link_to arvore.altura_minima, arvore %>
+  </div>
+<% end %>

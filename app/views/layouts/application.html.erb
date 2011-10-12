@@ -1,0 +1,77 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!--
+Design by http://www.dreamtemplate.com
+-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title><%= content_for?(:title) ? yield(:title) : "ArvoresBrasil" %></title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<%= stylesheet_link_tag "application" %>
+<%= javascript_include_tag "application" %>
+
+</head>
+<body>
+	
+	
+<div class="main">
+
+    <%= render "top" %>
+
+  <div class="content">
+    <div class="content_resize">
+
+	  <% # image_tag("img1.jpg", :size => "927x240", :alt => "image", :class=>"ctop") %>
+
+      <% flash.each do |name, msg| %>
+        <%= content_tag :div, msg, :id => "flash_#{name}" %>
+      <% end %>
+
+
+      <div class="mainbar">
+	    <div class="article">
+		  <%= yield %>
+		</div>
+      </div>
+
+	  <div class="sidebar">
+	  	<%= render "side" %>
+	  </div>
+	
+      <div class="clr"></div>
+    </div>
+  </div>
+
+  <div class="fbg">
+    <div class="fbg_resize">
+      <div class="col c1">
+        <h2>Sobre</h2>
+        <img src="/assets/white.jpg" width="66" height="66" alt="pix" />
+        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec libero. Suspendisse bibendum. Cras id urna. Morbi tincidunt, orci ac convallis aliquam, lectus turpis varius lorem, eu posuere nunc justo tempus leo. llorem, eu posuere nunc justo tempus leo. Donec mattis, purus nec placerat bibendum. <a href="#">Learn more...</a></p>
+      </div>
+      <div class="col c3">
+        <h2>Image Galley</h2>
+        <img src="/assets/pix1.jpg" width="66" height="66" alt="pix" />
+        <img src="/assets/pix2.jpg" width="66" height="66" alt="pix" />
+        <img src="/assets/pix3.jpg" width="66" height="66" alt="pix" />
+        <img src="/assets/pix4.jpg" width="66" height="66" alt="pix" />
+        <img src="/assets/pix5.jpg" width="66" height="66" alt="pix" />
+        <img src="/assets/pix6.jpg" width="66" height="66" alt="pix" />
+      </div>
+      <div class="clr"></div>
+    </div>
+  </div>
+  <div class="footer">
+    <div class="footer_resize">
+      <p class="lf">&copy; Copyright ArvoresBrasil - Todos os direitos reservados. <br>Designed by (DT) <a href="http://www.dreamtemplate.com">Website Templates</a></p>
+      <ul class="fmenu">
+        <li class="active"><a href="index.html">Ruby on Rails</a></li>
+        <li><a href="support.html">Dream Template</a></li>
+
+      </ul>
+      <div class="clr"></div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
+

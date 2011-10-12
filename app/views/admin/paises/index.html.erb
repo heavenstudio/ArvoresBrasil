@@ -1,0 +1,14 @@
+<h1>Países</h1>
+
+<%= link_to 'Novo País', new_admin_pais_path %>
+</br></br>
+<table>
+  <% for pais in @paises %>
+	<tr>
+    <td> <%= pais.id  %></td>
+    <td> <%= pais.nome  %></td> 
+    <td><%= link_to 'Editar', edit_admin_pais_path(pais) %></td>
+    <td><%= link_to 'Excluir', [:admin,pais], confirm: 'Excluir?', method: :delete %></td>
+	</tr>
+  <% end %>
+</table>

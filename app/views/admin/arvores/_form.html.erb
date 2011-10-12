@@ -1,0 +1,80 @@
+<%= stylesheet_link_tag "arvores" %>
+
+
+<div >
+	
+	
+<%= form_for([:admin, @arvore]) do |f| %>
+<%= render 'shared/error_messages', :object => f.object %>
+	<div>
+	Altura
+	<%= f.text_field :altura_minima , :size => 2, :maxlength=>"3", :class=>"form_campos"   %>
+	-
+	<%= f.text_field :altura_maxima, :size => 2, :maxlength=>"3", :class=>"form_campos"    %>
+	</div>
+	<div>
+	DAP
+	<%= f.text_field :dap_minimo, :size => 2, :maxlength=>"3", :class=>"form_campos"   %>
+	-
+	<%= f.text_field :dap_maximo, :size => 2, :maxlength=>"3", :class=>"form_campos"   %>
+	</div>
+	<div>
+	Diâmetro da Copa
+	<%= f.text_field :copa_diametro_minimo, :size => 2, :maxlength=>"3", :class=>"form_campos"   %>
+	-
+	<%= f.text_field :copa_diametro_maximo, :size => 2, :maxlength=>"3", :class=>"form_campos"   %>
+	</div>
+	<div>
+	<%= f.label :sementes_kg  %>
+	<%= f.text_field :sementes_kg, :size => 4, :maxlength=>"5", :class=>"form_campos"   %>
+	</div>
+	<div>
+	<%= f.label :sementes_viabilidade  %>
+	<%= f.text_field :sementes_viabilidade, :size => 2, :maxlength=>"2", :class=>"form_campos"   %>
+	</div>
+	<div>
+	<%= f.label :observacao  %>
+	<%= f.text_area :observacao, :size => "30x5"  %>
+	</div>
+
+	<div>
+    <%= f.label :familia_id %><br />
+    <%= f.collection_select(:familia_id,
+         Familia.order('nome'),
+         :id, :nome, {:prompt => true}, :class=>"form_campos") %>
+	</div>
+
+	<div>
+    <%= f.label :pais_id %><br />
+    <%= f.collection_select(:pais_id,
+         Pais.order('nome'),
+         :id, :nome, {:prompt => true}, :class=>"form_campos") %>
+	</div>
+	
+	<div>
+    <%= f.label :extincao_id %><br />
+    <%= f.collection_select(:extincao_id,
+         Extincao.order('grau'),
+         :id, :grau, {:prompt => true}, :class=>"form_campos") %>
+	</div>
+
+	<div>
+	Nomes Populares<br><br>
+	<% Popular.all.each do |popular| -%>
+		<%= check_box_tag :popular_ids, popular.id, @arvore.populares.include?(popular), :name => 'arvore[popular_ids][]' %>
+		<%= label_tag :popular_ids, popular.nome -%>
+		<br>
+	<% end -%>
+	</div>
+
+
+
+
+  	<div>
+		<p></p>
+		<%= f.submit %>
+  	</div>
+<% end %>
+
+
+</div>

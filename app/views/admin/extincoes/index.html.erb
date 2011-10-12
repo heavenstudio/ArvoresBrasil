@@ -1,0 +1,14 @@
+<h1>Extincoes</h1>
+
+<%= link_to 'Nova Extinção', new_admin_extincao_path %>
+</br></br>
+<table>
+  <% for extincao in @extincoes %>
+	<tr>
+    <td> <%= extincao.id    %>
+    <td> <%= extincao.grau    %>
+    <td><%= link_to 'Editar', edit_admin_extincao_path(extincao) %></td>
+    <td><%= link_to 'Excluir', [:admin,extincao], confirm: 'Excluir?', method: :delete %></td>
+	</tr>
+  <% end %>
+</table>

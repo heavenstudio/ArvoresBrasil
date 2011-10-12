@@ -1,0 +1,12 @@
+<%= form_for([:admin, @germinacao_tempo]) do |f| %>
+<%= render 'shared/error_messages', :object => f.object %>
+
+  <div>
+    <%= f.label :tempo %>
+    <%= f.text_field :tempo %>
+  </div>
+
+  <div>
+    <%= f.submit %>
+  </div>
+<% end %>

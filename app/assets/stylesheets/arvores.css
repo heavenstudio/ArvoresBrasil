@@ -1,0 +1,97 @@
+.menu
+{
+    FONT: 10px Arial;
+    COLOR: #ffffff;
+    TEXT-DECORATION: none
+}
+.menu_grupo
+{
+    FONT: 10px Arial;
+    COLOR: #ffffff;
+    TEXT-DECORATION: none
+}
+.menu_datas_com
+{
+    FONT: 10px Arial;
+    COLOR: #006666;
+    TEXT-DECORATION: none
+}
+.texto_geral
+{
+    FONT: 11px Verdana;
+    COLOR: #006666;
+    TEXT-DECORATION: none
+}
+.texto_peq
+{
+    FONT: 10px Arial;
+    COLOR: #006666;
+    TEXT-DECORATION: none
+}
+.titulo_peq
+{
+    FONT: 11px Verdana;
+    COLOR: #ff9900;
+    TEXT-DECORATION: none
+}
+.titulo
+{
+    FONT: 11px Verdana;
+    COLOR: #ffffff;
+    TEXT-DECORATION: none
+}
+.scroll_noticia
+{
+    FONT: 11px Verdana;
+    COLOR: #006666;
+    TEXT-DECORATION: none
+}
+.list_top
+{
+    FONT: 10px Arial;
+    COLOR: #81b436;
+    TEXT-DECORATION: none
+}
+.list
+{
+    FONT: 10px Arial;
+    COLOR: #006666;
+    TEXT-DECORATION: none
+}
+.form_campos
+{
+    FONT: 10px Verdana;
+    COLOR: #006666;
+    BORDER-TOP-STYLE: groove;
+    BORDER-RIGHT-STYLE: groove;
+    BORDER-LEFT-STYLE: groove;
+    BACKGROUND-COLOR: #ffffff;
+    BORDER-BOTTOM-STYLE: groove
+}
+.form_botao
+{
+    FONT: 9px Verdana;
+    BORDER-TOP-STYLE: outset;
+    BORDER-RIGHT-STYLE: outset;
+    BORDER-LEFT-STYLE: outset;
+    BACKGROUND-COLOR: #cccccc;
+    BORDER-BOTTOM-STYLE: outset
+}
+.link_peq
+{
+    FONT-WEIGHT: normal;
+    FONT-SIZE: 10px;
+    COLOR: #006666;
+    FONT-FAMILY: Arial;
+    TEXT-DECORATION: underline
+}
+.link
+{
+    FONT-WEIGHT: normal;
+    FONT-SIZE: 11px;
+    COLOR: #006666;
+    FONT-STYLE: normal;
+    FONT-FAMILY: Verdana;
+    FONT-VARIANT: normal;
+    TEXT-DECORATION: underline
+}
