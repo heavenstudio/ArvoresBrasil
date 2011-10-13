@@ -59,12 +59,26 @@
 	</div>
 
 	<div>
+    <%= f.label :germinacao_taxa_id %><br />
+    <%= f.collection_select(:germinacao_taxa_id,
+         GerminacaoTaxa.order('taxa'),
+         :id, :taxa, {:prompt => true}, :class=>"form_campos") %>
+	</div>
+	
+	<div>
+    <%= f.label :germinacao_tempo_id %><br />
+    <%= f.collection_select(:germinacao_tempo_id,
+         GerminacaoTempo.order('tempo'),
+         :id, :tempo, {:prompt => true}, :class=>"form_campos") %>
+	</div>
+
+	<div>
 	Nomes Populares<br><br>
-	<% Popular.all.each do |popular| -%>
-		<%= check_box_tag :popular_ids, popular.id, @arvore.populares.include?(popular), :name => 'arvore[popular_ids][]' %>
-		<%= label_tag :popular_ids, popular.nome -%>
+	Popular.all.each do |popular| -%>
+		check_box_tag :popular_ids, popular.id, @arvore.populares.include?(popular), :name => 'arvore[popular_ids][]' %>
+		label_tag :popular_ids, popular.nome -%>
 		<br>
-	<% end -%>
+	end -%>
 	</div>
 
 

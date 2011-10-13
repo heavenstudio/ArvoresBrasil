@@ -7,6 +7,6 @@ class Popular < ActiveRecord::Base
   #validates_uniqueness_of :nome, :message => " - nome ja cadastrado"
   
   
-  has_many :nomes_populares # :order => ordem, :dependent => :destroy
+  has_many :nomes_populares, :order => :ordem, :dependent => :destroy
   has_many :arvores, :through => :nomes_populares
 end
