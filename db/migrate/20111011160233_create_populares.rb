@@ -5,6 +5,4 @@ class CreatePopulares < ActiveRecord::Migration
       t.timestamps
     end
   end
-
-
 end

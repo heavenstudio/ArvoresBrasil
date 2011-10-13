@@ -1,5 +1,5 @@
 class CreateFamilias < ActiveRecord::Migration
-  def up
+  def change
     create_table :familias do |t|
       t.string :nome, :null => false
     end
@@ -7,8 +7,4 @@ class CreateFamilias < ActiveRecord::Migration
     add_column :arvores, :familia_id, :integer, :null => false
   end
 
-  def down
-    remove_column :arvores, :familia_id
-    drop_table :familias
-  end
 end

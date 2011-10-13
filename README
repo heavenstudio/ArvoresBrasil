@@ -29,8 +29,12 @@ P‡ginas est‡ticas, como faz ?
 4-
 Uma coisa n‹o ficou clara pra mim sobre o Template Inheritance: os Controllers precisam mesmo ser duplicados no site normal e no admin ?
 
+5-
+Em alguns casos, como por exemplo familia/new, gostaria que depois do creste fosse direcionado para Index e n‹o para Show (mantendo a mensagem de "criado com sucesso"
 
-Pr—ximas features que o site via precisar:
+
+
+:: Pr—ximas features que o site via precisar::
 
 1-
 Login com n’veis de acesso 

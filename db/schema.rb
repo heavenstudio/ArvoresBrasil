@@ -27,14 +27,14 @@ ActiveRecord::Schema.define(:version => 20111011160251) do
     t.datetime "updated_at"
     t.integer  "familia_id",                        :null => false
     t.integer  "pais_id"
+    t.integer  "germinacao_tempo_id",               :null => false
+    t.integer  "germinacao_taxa_id",                :null => false
     t.integer  "extincao_id"
   end
 
   create_table "crescimentos", :force => true do |t|
-    t.string   "nome"
-    t.text     "descricao"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.string "nome"
+    t.text   "descricao"
   end
 
   create_table "extincoes", :force => true do |t|
@@ -55,10 +55,8 @@ ActiveRecord::Schema.define(:version => 20111011160251) do
   end
 
   create_table "folha_ciclos", :force => true do |t|
-    t.string   "nome"
-    t.text     "descricao"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.string "nome"
+    t.text   "descricao"
   end
 
   create_table "frutificacoes", :force => true do |t|
@@ -73,17 +71,17 @@ ActiveRecord::Schema.define(:version => 20111011160251) do
   end
 
   create_table "germinacao_taxas", :force => true do |t|
-    t.string   "taxa"
-    t.string   "descricao"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.string "taxa"
+    t.string "descricao"
   end
 
+  add_index "germinacao_taxas", ["taxa"], :name => "index_germinacao_taxas_on_taxa", :unique => true
+
   create_table "germinacao_tempos", :force => true do |t|
-    t.string   "tempo"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.string "tempo"
   end
+
+  add_index "germinacao_tempos", ["tempo"], :name => "index_germinacao_tempos_on_tempo", :unique => true
 
   create_table "nomes_populares", :id => false, :force => true do |t|
     t.integer  "arvore_id",               :null => false
@@ -106,10 +104,8 @@ ActiveRecord::Schema.define(:version => 20111011160251) do
   end
 
   create_table "raizes", :force => true do |t|
-    t.string   "nome"
-    t.text     "descricao"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.string "nome"
+    t.text   "descricao"
   end
 
 end

@@ -1,13 +1,10 @@
 class CreateGerminacaoTaxas < ActiveRecord::Migration
-  def up
+  def change
     create_table :germinacao_taxas do |t|
       t.string  :taxa
       t.string  :descricao
-      t.timestamps
     end
-  end
-
-  def down
-    drop_table :germinacao_taxas
+    add_index :germinacao_taxas, :taxa, :unique
+    add_column :arvores, :germinacao_taxa_id, :integer, :null => false
   end
 end

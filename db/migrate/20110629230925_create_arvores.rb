@@ -1,5 +1,5 @@
 class CreateArvores < ActiveRecord::Migration
-  def up
+  def change
     create_table :arvores do |t|
 
       #MYSQL
@@ -21,10 +21,6 @@ class CreateArvores < ActiveRecord::Migration
 
       t.timestamps
     end
-  end
-
-  def down
-    drop_table :arvores
   end
 end
 

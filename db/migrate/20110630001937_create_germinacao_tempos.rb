@@ -1,12 +1,9 @@
 class CreateGerminacaoTempos < ActiveRecord::Migration
-  def up
+  def change
     create_table :germinacao_tempos do |t|
       t.string  :tempo
-      t.timestamps
     end
-  end
-
-  def down
-    drop_table :germinacao_tempos
+    add_index :germinacao_tempos, :tempo, :unique
+    add_column :arvores, :germinacao_tempo_id, :integer, :null => false
   end
 end
