@@ -28,7 +28,7 @@ class FamiliasController < BaseController
   def create
     @familia = Familia.new(params[:familia])
     if @familia.save
-      redirect_to [:admin, @familia], notice: 'Familia criada com sucesso.'
+      redirect_to action: "index"
     else
       render action: "new"
     end
