@@ -74,11 +74,11 @@
 
 	<div>
 	Nomes Populares<br><br>
-	Popular.all.each do |popular| -%>
-		check_box_tag :popular_ids, popular.id, @arvore.populares.include?(popular), :name => 'arvore[popular_ids][]' %>
-		label_tag :popular_ids, popular.nome -%>
+	<% Popular.all.each do |popular| -%>
+		<%= check_box_tag :popular_ids, popular.id, @arvore.populares.include?(popular), :name => 'arvore[popular_ids][]' %>
+		<%= label_tag :popular_ids, popular.nome -%>
 		<br>
-	end -%>
+	<% end -%>
 	</div>
 
 
