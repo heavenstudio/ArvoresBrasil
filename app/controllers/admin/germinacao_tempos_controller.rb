@@ -7,13 +7,6 @@ class GerminacaoTemposController < BaseController
     end
   end
 
-  def show
-    @germinacao_tempo = GerminacaoTempo.find(params[:id])
-    respond_to do |format|
-      format.html # show.html.erb
-    end
-  end
-  
   def new
     @germinacao_tempo = GerminacaoTempo.new
     respond_to do |format|
@@ -28,7 +21,7 @@ class GerminacaoTemposController < BaseController
   def create
     @germinacao_tempo = GerminacaoTempo.new(params[:germinacao_tempo])
     if @germinacao_tempo.save
-      redirect_to [:admin, @germinacao_tempo], notice: 'GerminacaoTempo criada com sucesso.'
+      redirect_to admin_germinacao_tempos_url, notice: 'GerminacaoTempo criada com sucesso.'
     else
       render action: "new"
     end

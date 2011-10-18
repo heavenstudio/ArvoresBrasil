@@ -7,13 +7,6 @@ class PopularesController < BaseController
     end
   end
 
-  def show
-    @popular = Popular.find(params[:id])
-    respond_to do |format|
-      format.html # index.html.erb
-    end
-  end
-
   def new
     @popular = Popular.new
     respond_to do |format|
@@ -28,7 +21,7 @@ class PopularesController < BaseController
   def create
     @popular = Popular.new(params[:popular])
     if @popular.save
-      redirect_to [:admin, @popular], notice: 'Popular criado com sucesso.'
+      redirect_to admin_populares_url, notice: 'Popular criado com sucesso.'
     else
       render action: "new"
     end

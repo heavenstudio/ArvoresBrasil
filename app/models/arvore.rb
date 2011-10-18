@@ -9,6 +9,7 @@ class Arvore < ActiveRecord::Base
   belongs_to :pais
   belongs_to :germinacao_taxa
   belongs_to :germinacao_tempo
+  belongs_to :folha_ciclo
     
   
   validates_presence_of :altura_minima, :message => " - deve ser preenchido"

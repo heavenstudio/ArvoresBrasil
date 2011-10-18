@@ -6,13 +6,6 @@ class GenerosController < BaseController
       format.html # index.html.erb
     end
   end
-
-  def show
-    @genero = Genero.find(params[:id])
-    respond_to do |format|
-      format.html # show.html.erb
-    end
-  end
   
   def new
     @genero = Genero.new
@@ -28,7 +21,7 @@ class GenerosController < BaseController
   def create
     @genero = Genero.new(params[:genero])
     if @genero.save
-      redirect_to [:admin, @genero], notice: 'Genero criado com sucesso.'
+      redirect_to admin_generos_url, notice: 'Genero criado com sucesso.'
     else
       render action: "new"
     end

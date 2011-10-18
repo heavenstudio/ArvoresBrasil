@@ -29,7 +29,7 @@ class ArvoresController < BaseController
   def create
     @arvore = Arvore.new(params[:arvore])
     if @arvore.save
-      redirect_to [:admin, @arvore], notice: 'Arvore criada com sucesso.'
+      redirect_to admin_arvore_url, notice: 'Arvore criada com sucesso.'
     else
       render action: "new"
     end

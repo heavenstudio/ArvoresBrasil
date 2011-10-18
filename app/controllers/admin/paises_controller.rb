@@ -6,13 +6,6 @@ class PaisesController < BaseController
       format.html # index.html.erb
     end
   end
-
-  def show
-    @pais = Pais.find(params[:id])
-    respond_to do |format|
-      format.html # show.html.erb
-    end
-  end
   
   def new
     @pais = Pais.new
@@ -28,7 +21,7 @@ class PaisesController < BaseController
   def create
     @pais = Pais.new(params[:pais])
     if @pais.save
-      redirect_to [:admin, @pais], notice: 'Pais criada com sucesso.'
+      redirect_to action: "index", notice: 'Pais criada com sucesso.'
     else
       render action: "new"
     end

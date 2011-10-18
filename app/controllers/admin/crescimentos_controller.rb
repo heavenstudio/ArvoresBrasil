@@ -1,16 +1,9 @@
 module Admin
 class CrescimentosController < BaseController
   def index
-    @crescimentos = Crescimento.order('nome').paginate :page=> params['page'], :per_page=>30
+    @crescimentos = Crescimento.order('nome')
     respond_to do |format|
       format.html # index.html.erb
-    end
-  end
-
-  def show
-    @crescimento = Crescimento.find(params[:id])
-    respond_to do |format|
-      format.html # show.html.erb
     end
   end
   

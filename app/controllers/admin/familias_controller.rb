@@ -6,13 +6,6 @@ class FamiliasController < BaseController
       format.html # index.html.erb
     end
   end
-
-  def show
-    @familia = Familia.find(params[:id])
-    respond_to do |format|
-      format.html # show.html.erb
-    end
-  end
   
   def new
     @familia = Familia.new
@@ -28,7 +21,7 @@ class FamiliasController < BaseController
   def create
     @familia = Familia.new(params[:familia])
     if @familia.save
-      redirect_to action: "index"
+      redirect_to admin_familias_url, notice: 'Familia criada com sucesso.'
     else
       render action: "new"
     end

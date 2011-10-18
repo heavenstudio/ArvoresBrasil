@@ -6,13 +6,6 @@ class ExtincoesController < BaseController
       format.html # index.html.erb
     end
   end
-
-  def show
-    @extincao = Extincao.find(params[:id])
-    respond_to do |format|
-      format.html # show.html.erb
-    end
-  end
   
   def new
     @extincao = Extincao.new
@@ -28,7 +21,7 @@ class ExtincoesController < BaseController
   def create
     @extincao = Extincao.new(params[:extincao])
     if @extincao.save
-      redirect_to [:admin, @extincao], notice: 'Extincao criada com sucesso.'
+      redirect_to admin_extincoes_url, notice: 'Extincao criada com sucesso.'
     else
       render action: "new"
     end

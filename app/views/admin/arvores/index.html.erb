@@ -16,6 +16,7 @@
     	<td class="list_top"> Família </td>
     	<td class="list_top"> Pais </td>
     	<td class="list_top"> Extinção </td>
+    	<td class="list_top"> Folha Ciclo </td>
 		<td class="list_top">Edit</td>
 		<td class="list_top">Excluir</td>
 	</tr>
@@ -31,12 +32,10 @@
 	<% end %>
     	<td class="list"> <%= link_to arvore.id , [:admin, arvore] %></td> 
     	<td> Nome Popular   	
-		  <% arvore.populares.each do |popular| %>
-		    <%= popular.nome %>
-		  <% end %>
+		   arvore.populares.each do |popular| %>
+		     popular.nome %>
+		   end %>
 		</td>
-
-
 
 	
 		<td> <%= arvore.altura_minima  %> - <%= arvore.altura_maxima %></td>
@@ -48,7 +47,7 @@
     	<td> <%= arvore.familia.nome %></td>
     	<td> <%= arvore.pais.nome %></td>
     	<td> <%= arvore.extincao.grau %></td>
-
+    	<td> <%= arvore.folha_ciclo.ciclo %></td>
     	<td><%= link_to 'Edit', edit_admin_arvore_path(arvore) %></td>
     	<td align="right"><%= link_to 'X', [:admin,arvore], confirm: 'Excluir?', method: :delete %></td>
 	</tr>

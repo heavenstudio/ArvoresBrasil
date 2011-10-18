@@ -1,7 +1,101 @@
-<p>
-  <b>Nome:</b>
-  <%= @arvore.altura_minima %>
-</p>
+<table width="100%">
+	<tr><td width="50%" valign="top">
+		<h3>Nome</h3>
+		<b>Família: </b>  <%= @arvore.familia.nome %> </br>
+		<b>Científico: </b>  xxxxx xxxxx </br>
+		<b>Populares: </b>  xxxxx, xxxxx, xxxxxxx-xxxx </br>
+	</td>
+	
+	<td width="50%" valign="top">
+		<h3>Ocorrência</h3>
+		<b>País: </b>  <%= @arvore.pais.nome %> </br>
+		<b>Estados: </b>  XX, XX, XX, XX </br>
+		<b>Florestal: </b>  xxxxx xxxxx </br>
+		<b>Sucessão: </b>  xxxxx xxxxx </br>
+	</td></tr>
+</table>
+
+<table width="100%">
+	<tr><td width="50%" valign="top">
+		<h3>Medidas</h3>
+		<b>Altura: </b>  de <%= @arvore.altura_minima %> à <%= @arvore.altura_maxima %> metros</br>
+		<b>DAP: </b>  de <%= @arvore.dap_minimo %> à <%= @arvore.dap_maximo %> centímetros</br>
+		<b>Copa: </b>  de <%= @arvore.copa_diametro_minimo %> à <%= @arvore.copa_diametro_maximo %> centímetros</br>
+	</td>
+	
+	<td width="50%" valign="top">
+		<h3>Características</h3>
+		<b>Folha ciclo: </b>  <%= @arvore.folha_ciclo.ciclo %>  </br>
+		<b>Características: </b>  xxxxx xxxxx  </br>
+		<b>Crescimento: </b>  xxxxx xxxxx  </br>
+		<b>Floração: </b>  xxxxx xxxxx  </br>
+		<b>Frutificação: </b>  xxxxx xxxxx  </br>
+		<b>Extinção: </b>  <%= @arvore.extincao.grau %>  </br>
+	</td></tr>
+</table>
+
+
+
+<table width="100%">
+	<tr><td width="50%" valign="top"><h3>Utilização</h3>
+		<table>
+			<tr><td>
+				<b>Utilizações: </b>  xxxxx </br> xxxx xxxxx </br> xxxxx </br> xxxx xxxxx
+			</td></tr>
+		</table>
+	</td>
+	
+	<td width="50%" valign="top"><h3>Extração</h3>
+		<table>
+			<tr><td>
+				<b>Extrações: </b>  xxxxx </br> xxxx xxxxx </br> xxxxx </br> xxxx xxxxx
+			</td></tr>
+		</table>
+	</td></tr>
+</table>
+
+
+
+<table width="100%">
+	<tr><td width="50%" valign="top"><h3>Semente</h3>
+		<table>
+			<tr><td>
+				<b>Por Kg: </b>  xxxx xxxx
+			</td></tr>
+			<tr><td>
+				<b>Emergência: </b>  <%= @arvore.germinacao_tempo.tempo %>
+			</td></tr>
+			<tr><td>
+				<b>Germinação: </b>  <%= @arvore.germinacao_taxa.taxa %>
+			</td></tr>
+		</table>
+	</td>
+	
+	<td width="50%" valign="top"><h3>Bibliografia</h3>
+		<table>
+			<tr><td>
+				<b>Livros: </b>  xxxx
+			</td></tr>
+		</table>
+	</td></tr>
+</table>
+
+
+<table  width="100%">
+	<tr><td valign="top"><h3>Observação</h3>
+		<%= @arvore.observacao %>
+	</td></tr>
+</table>
+
+
+<table  width="100%">
+	<tr><td valign="top"><h3>Comentários de usuários</h3>
+		dsf sdfsdf s </br>
+		sd gffd </br>
+		gdfsgd </br>
+		gdf asd fdsfdsgdfgdfgadsf gdsfgfdg fdg dfgd f
+	</td></tr>
+</table>
 
 
 

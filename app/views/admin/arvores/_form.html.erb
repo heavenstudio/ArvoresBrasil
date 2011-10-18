@@ -59,6 +59,14 @@
 	</div>
 
 	<div>
+    <%= f.label :folha_ciclo_id %><br />
+    <%= f.collection_select(:folha_ciclo_id,
+         FolhaCiclo.order('ciclo'),
+         :id, :ciclo, {:prompt => true}, :class=>"form_campos") %>
+	</div>
+	
+	
+	<div>
     <%= f.label :germinacao_taxa_id %><br />
     <%= f.collection_select(:germinacao_taxa_id,
          GerminacaoTaxa.order('taxa'),
@@ -74,11 +82,11 @@
 
 	<div>
 	Nomes Populares<br><br>
-	<% Popular.all.each do |popular| -%>
-		<%= check_box_tag :popular_ids, popular.id, @arvore.populares.include?(popular), :name => 'arvore[popular_ids][]' %>
-		<%= label_tag :popular_ids, popular.nome -%>
+	 Popular.all.each do |popular| -%>
+		check_box_tag :popular_ids, popular.id, @arvore.populares.include?(popular), :name => 'arvore[popular_ids][]' %>
+		 label_tag :popular_ids, popular.nome -%>
 		<br>
-	<% end -%>
+	 end -%>
 	</div>
 
 

@@ -6,13 +6,6 @@ class GerminacaoTaxasController < BaseController
       format.html # index.html.erb
     end
   end
-
-  def show
-    @germinacao_taxa = GerminacaoTaxa.find(params[:id])
-    respond_to do |format|
-      format.html # show.html.erb
-    end
-  end
   
   def new
     @germinacao_taxa = GerminacaoTaxa.new
@@ -28,7 +21,7 @@ class GerminacaoTaxasController < BaseController
   def create
     @germinacao_taxa = GerminacaoTaxa.new(params[:germinacao_taxa])
     if @germinacao_taxa.save
-      redirect_to [:admin, @germinacao_taxa], notice: 'GerminacaoTaxa criada com sucesso.'
+      redirect_to admin_germinacao_taxas_url, notice: 'GerminacaoTaxa criada com sucesso.'
     else
       render action: "new"
     end
