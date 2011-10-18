@@ -1,3 +1,7 @@
 log/*
 tmp/*
 .rvmrc
+
+app/views/admin/.DS_Store
+
+app/views/admin/.DS_Store

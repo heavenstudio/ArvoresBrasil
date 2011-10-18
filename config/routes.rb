@@ -1,5 +1,7 @@
 ArvoresBrasil::Application.routes.draw do
 
+  resources :folha_ciclos
+
   resources :familias
   resources :arvores
   
@@ -15,6 +17,7 @@ ArvoresBrasil::Application.routes.draw do
     resources :germinacao_tempos
     resources :extincoes    
     resources :populares
+    resources :folha_ciclos
   end
 
 end

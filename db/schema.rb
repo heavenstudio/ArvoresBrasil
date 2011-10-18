@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111011160251) do
+ActiveRecord::Schema.define(:version => 20111017214158) do
 
   create_table "arvores", :force => true do |t|
     t.integer  "altura_minima",        :limit => 1
@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(:version => 20111011160251) do
     t.integer  "germinacao_tempo_id",               :null => false
     t.integer  "germinacao_taxa_id",                :null => false
     t.integer  "extincao_id"
+    t.integer  "folha_ciclo_id",                    :null => false
   end
 
   create_table "crescimentos", :force => true do |t|
@@ -55,9 +56,11 @@ ActiveRecord::Schema.define(:version => 20111011160251) do
   end
 
   create_table "folha_ciclos", :force => true do |t|
-    t.string "nome"
+    t.string "ciclo"
     t.text   "descricao"
   end
+
+  add_index "folha_ciclos", ["ciclo"], :name => "index_folha_ciclos_on_ciclo", :unique => true
 
   create_table "frutificacoes", :force => true do |t|
     t.integer  "arvore_id"

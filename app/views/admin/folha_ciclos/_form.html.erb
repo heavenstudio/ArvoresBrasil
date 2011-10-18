@@ -1,0 +1,25 @@
+<%= form_for([:admin, @folha_ciclo]) do |f| %>
+  <% if @folha_ciclo.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@folha_ciclo.errors.count, "error") %> prohibited this folha_ciclo from being saved:</h2>
+
+      <ul>
+      <% @folha_ciclo.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :ciclo %><br />
+    <%= f.text_field :ciclo %>
+  </div>
+  <div class="field">
+    <%= f.label :descricao %><br />
+    <%= f.text_area :descricao %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
