@@ -1,20 +1,15 @@
 log/*
 tmp/*
+tmp/cache/*
 .rvmrc
 
 app/views/admin/.DS_Store
 
 app/views/admin/.DS_Store
 
-tmp/cache/assets/D54/ED0/sprockets%2F71c9fa01091d432b131da3bb73faf3d4
-
-tmp/cache/assets/D32/A10/sprockets%2F13fe41fee1fe35b49d145bcc06610705
-
 test/functional/.DS_Store
 
 test/.DS_Store
-
-tmp/cache/assets/D32/A10/sprockets%2F13fe41fee1fe35b49d145bcc06610705
 
 spec/views/.DS_Store
 
