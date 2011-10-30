@@ -6,6 +6,13 @@ class GenerosController < BaseController
       format.html # index.html.erb
     end
   end
+
+  def show
+    @genero = Genero.find(params[:id])
+    respond_to do |format|
+      format.html # show.html.erb
+    end
+  end
   
   def new
     @genero = Genero.new
