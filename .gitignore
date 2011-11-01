@@ -28,3 +28,9 @@ spec/controllers/.DS_Store
 spec/.DS_Store
 
 app/.DS_Store
+
+app/controllers/.DS_Store
+
+.DS_Store
+
+app/views/admin/.DS_Store

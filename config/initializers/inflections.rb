@@ -28,7 +28,8 @@ ActiveSupport::Inflector.inflections do |inflect|
   inflect.irregular 'nome_cientifico', 'nomes_cintificos'
   inflect.irregular 'genero', 'generos'
   inflect.irregular 'extincao', 'extincoes'
-
+  inflect.irregular 'livro', 'livros'
+  inflect.irregular 'bibliografia', 'bibliografias'
   
   #Textos e HTML
   inflect.irregular 'erro', 'erros'

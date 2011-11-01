@@ -89,7 +89,14 @@
 	 end -%>
 	</div>
 
-
+	<div>
+	Bibliografia<br><br>
+	  <% Livro.all.each do |livro| %>
+		<%= check_box_tag :livro_ids, livro.id, @arvore.livros.include?(livro), :name => 'arvore[livro_ids][]' %>
+		<%= label_tag :livro_ids, livro.nome %>
+		<br>
+	 <% end %>
+	</div>
 
 
   	<div>

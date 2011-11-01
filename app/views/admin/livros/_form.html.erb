@@ -1,0 +1,23 @@
+<%= form_for([:admin, @livro]) do |f| %>
+  <div>
+    <%= f.label :nome %>
+    <%= f.text_field :nome %>
+  </div>
+
+  <div>
+    <%= f.label :autor %>
+    <%= f.text_field :autor %>
+  </div>
+
+  <div>
+    <%= f.label :editora %>
+    <%= f.text_field :editora %>
+  </div>
+
+  <div>
+    <%= f.submit %>
+  </div>
+<% end %>
+
+
+

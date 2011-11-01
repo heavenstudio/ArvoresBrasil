@@ -3,6 +3,9 @@ class Arvore < ActiveRecord::Base
 
   has_many :nomes_populares, :dependent => :destroy
   has_many :populares, :through => :nomes_populares
+
+  has_many :bibliografias, :dependent => :destroy
+  has_many :livros, :through => :bibliografias
   
   belongs_to :familia
   belongs_to :extincao

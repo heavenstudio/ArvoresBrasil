@@ -18,6 +18,7 @@ ArvoresBrasil::Application.routes.draw do
     resources :extincoes    
     resources :populares
     resources :folha_ciclos
+    resources :livros
   end
 
 end

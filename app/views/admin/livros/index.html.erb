@@ -1,0 +1,18 @@
+<h1>Livros</h1>
+
+<%= link_to 'Novo  Popular', new_admin_livro_path %>
+</br></br>
+
+<table>
+  <% for livro in @livros %>
+	<tr>
+	  <td> <%= livro.id %> </td>
+      <td> <%= livro.nome %> </td>
+      <td> <%= livro.autor %> </td>
+      <td> <%= livro.editora %> </td>
+      <td><%= link_to 'Ver', [:admin, livro] %></td>
+      <td><%= link_to 'Editar', edit_admin_livro_path(livro) %></td>
+      <td><%= link_to 'Excluir', [:admin, livro], confirm: 'Excluir?', method: :delete %></td>
+	</tr>
+  <% end %>
+</table>

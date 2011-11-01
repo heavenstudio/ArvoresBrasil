@@ -6,9 +6,9 @@
 		<b>Populares: </b>
 		
 		
-	    <% @arvore.populares.each do |popular| %>
-	     <%= popular.nome %>
-	    <% end %>
+	    @arvore.populares.each do |popular| %>
+	      popular.nome %>
+	     end %>
 		
 		 xxxxx, xxxxx, xxxxxxx-xxxx </br>
 	</td>
@@ -82,6 +82,9 @@
 		<table>
 			<tr><td>
 				<b>Livros: </b>  xxxx
+			    <% @arvore.livros.each do |livro| %>
+			     <%= livro.nome %>
+			    <% end %>
 			</td></tr>
 		</table>
 	</td></tr>
