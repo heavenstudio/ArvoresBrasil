@@ -82,11 +82,8 @@
 
 	<div>
 	Nomes Populares<br><br>
-	 Popular.all.each do |popular| -%>
-		check_box_tag :popular_ids, popular.id, @arvore.populares.include?(popular), :name => 'arvore[popular_ids][]' %>
-		 label_tag :popular_ids, popular.nome -%>
-		<br>
-	 end -%>
+	 select_tag "popular", options_from_collection_for_select(Popular, "id", "nome") 
+
 	</div>
 
 	<div>

@@ -4,13 +4,10 @@
 		<b>Família: </b>  <%= @arvore.familia.nome %> </br>
 		<b>Científico: </b>  xxxxx xxxxx </br>
 		<b>Populares: </b>
-		
-		
-	    @arvore.populares.each do |popular| %>
-	      popular.nome %>
-	     end %>
-		
-		 xxxxx, xxxxx, xxxxxxx-xxxx </br>
+		<% @arvore.populares.each do |popular| %>
+			<%= popular.nome %>,
+		<% end %>
+
 	</td>
 	
 	<td width="50%" valign="top">

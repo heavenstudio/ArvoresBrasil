@@ -24,8 +24,10 @@ ActiveSupport::Inflector.inflections do |inflect|
   inflect.irregular 'popular', 'populares'
   
   inflect.irregular 'nome_popular', 'nomes_populares'
+    inflect.irregular 'NomePopular', 'NomesPopulares'
   inflect.irregular 'cientifico', 'cientificos'
   inflect.irregular 'nome_cientifico', 'nomes_cintificos'
+    inflect.irregular 'NomeCientifico', 'NomesCintificos'
   inflect.irregular 'genero', 'generos'
   inflect.irregular 'extincao', 'extincoes'
   inflect.irregular 'livro', 'livros'
