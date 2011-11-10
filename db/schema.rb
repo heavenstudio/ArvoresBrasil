@@ -13,6 +13,14 @@
 
 ActiveRecord::Schema.define(:version => 20111031223712) do
 
+  create_table "arvore_nomes_populares", :id => false, :force => true do |t|
+    t.integer  "arvore_id",                    :null => false
+    t.integer  "nome_popular_id",              :null => false
+    t.integer  "ordem",           :limit => 1
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "arvores", :force => true do |t|
     t.integer  "altura_minima",        :limit => 1
     t.integer  "altura_maxima",        :limit => 1
@@ -55,10 +63,8 @@ ActiveRecord::Schema.define(:version => 20111031223712) do
   add_index "familias", ["nome"], :name => "index_familias_on_nome", :unique => true
 
   create_table "floracoes", :force => true do |t|
-    t.integer  "arvore_id"
-    t.integer  "mes",        :limit => 1
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.integer "arvore_id"
+    t.integer "mes",       :limit => 1
   end
 
   create_table "folha_ciclos", :force => true do |t|
@@ -69,10 +75,8 @@ ActiveRecord::Schema.define(:version => 20111031223712) do
   add_index "folha_ciclos", ["ciclo"], :name => "index_folha_ciclos_on_ciclo", :unique => true
 
   create_table "frutificacoes", :force => true do |t|
-    t.integer  "arvore_id"
-    t.integer  "mes",        :limit => 1
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.integer "arvore_id"
+    t.integer "mes",       :limit => 1
   end
 
   create_table "generos", :force => true do |t|
@@ -98,10 +102,8 @@ ActiveRecord::Schema.define(:version => 20111031223712) do
     t.string "editora"
   end
 
-  create_table "nomes_populares", :id => false, :force => true do |t|
-    t.integer  "arvore_id",               :null => false
-    t.integer  "popular_id",              :null => false
-    t.integer  "ordem",      :limit => 1
+  create_table "nomes_populares", :force => true do |t|
+    t.string   "nome"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -111,12 +113,6 @@ ActiveRecord::Schema.define(:version => 20111031223712) do
   end
 
   add_index "paises", ["nome"], :name => "index_paises_on_nome", :unique => true
-
-  create_table "populares", :force => true do |t|
-    t.string   "nome"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
 
   create_table "raizes", :force => true do |t|
     t.string "nome"

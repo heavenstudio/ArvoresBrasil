@@ -31,9 +31,10 @@
 		<tr bgcolor='#FFFFFF' class='list'>
 	<% end %>
     <td class="list"> <%= link_to arvore.id , [:admin, arvore] %></td> 
+
     <td> <!-- COMO FAZ PARA PEGAR APENAS O PRIMEIRO ? (arvore.populares.first.nome ?)-->
-			<% arvore.populares.each do |popular| %>
-				<%= popular.nome %>,
+			<% arvore.nomes_populares.each do |nome_popular| %>
+				<%= nome_popular.nome %>,
 			<% end %>
 		</td>
 

@@ -1,0 +1,16 @@
+<h1>Nomes Populares</h1>
+
+<%= link_to 'Novo Nome Popular', new_admin_nome_popular_path %>
+</br></br>
+
+<table>
+  <% for nome_popular in @nomes_populares %>
+	<tr>
+	  <td> <%= nome_popular.id %> </td>
+      <td> <%= nome_popular.nome %> </td>
+      <td><%= link_to 'Editar', edit_admin_nome_popular_path(nome_popular) %></td>
+      <td><%= link_to 'Excluir', [:admin, nome_popular], confirm: 'Excluir?', method: :delete %></td>
+	</tr>
+  <% end %>
+</table>
+<%= will_paginate @nomes_populares %>

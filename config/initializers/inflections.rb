@@ -21,13 +21,19 @@ ActiveSupport::Inflector.inflections do |inflect|
   inflect.irregular 'germinacao_taxa', 'germinacao_taxas'
   inflect.irregular 'frutificacao', 'frutificacoes'
   inflect.irregular 'floracao', 'floracoes'
-  inflect.irregular 'popular', 'populares'
   
+
   inflect.irregular 'nome_popular', 'nomes_populares'
     inflect.irregular 'NomePopular', 'NomesPopulares'
-  inflect.irregular 'cientifico', 'cientificos'
-  inflect.irregular 'nome_cientifico', 'nomes_cintificos'
-    inflect.irregular 'NomeCientifico', 'NomesCintificos'
+  inflect.irregular 'arvore_nome_popular', 'arvore_nomes_populares'
+    inflect.irregular 'ArvoreNomePopular', 'ArvoreNomesPopulares'
+
+  inflect.irregular 'nome_cientifico', 'nomes_cientificos'
+    inflect.irregular 'NomeCientifico', 'NomesCientificos'
+   inflect.irregular 'arvore_nome_cientifico', 'arvore_nomes_cientificos'
+    inflect.irregular 'ArvoreNomeCientifico', 'ArvoreNomesCientificos'
+   
+      
   inflect.irregular 'genero', 'generos'
   inflect.irregular 'extincao', 'extincoes'
   inflect.irregular 'livro', 'livros'
