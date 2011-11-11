@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(:version => 20111031223712) do
     t.datetime "updated_at"
     t.integer  "familia_id",                        :null => false
     t.integer  "pais_id"
+    t.integer  "crescimento_id",                    :null => false
     t.integer  "germinacao_tempo_id",               :null => false
     t.integer  "germinacao_taxa_id",                :null => false
     t.integer  "extincao_id"
@@ -51,6 +52,8 @@ ActiveRecord::Schema.define(:version => 20111031223712) do
     t.string "nome"
     t.text   "descricao"
   end
+
+  add_index "crescimentos", ["nome"], :name => "index_crescimentos_on_nome", :unique => true
 
   create_table "extincoes", :force => true do |t|
     t.string "grau", :null => false
