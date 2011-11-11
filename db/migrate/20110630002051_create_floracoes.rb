@@ -3,7 +3,6 @@ class CreateFloracoes < ActiveRecord::Migration
     create_table :floracoes do |t|
       t.integer :arvore_id
       t.integer :mes, :limit => 1
-      t.timestamps
     end
   end
 end

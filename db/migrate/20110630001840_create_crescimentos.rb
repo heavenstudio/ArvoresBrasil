@@ -4,5 +4,7 @@ class CreateCrescimentos < ActiveRecord::Migration
       t.string  :nome
       t.text    :descricao
     end
+    add_index :crescimentos, :nome, :unique
+    add_column :arvores, :crescimento_id, :integer, :null => false
   end
 end

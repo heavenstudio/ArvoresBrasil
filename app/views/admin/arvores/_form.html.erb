@@ -81,8 +81,22 @@
 	</div>
 
 	<div>
+    <%= f.label :crescimento %><br />
+    <%= f.collection_select(:crescimento_id,
+         Crescimento.order('nome'),
+         :id, :nome, {:prompt => true}, :class=>"form_campos") %>
+	</div>
+	
+	<div>
 	Nomes Populares<br><br>
-	 select_tag "popular", options_from_collection_for_select(Popular, "id", "nome") 
+	 select_tag "popular", options_from_collection_for_select(Popular, "id", "nome") <br><br>
+
+
+	 <% NomePopular.all.each do |nome_popular| %>
+		<%= check_box_tag :nome_popular_ids, nome_popular.id, @arvore.nomes_populares.include?(nome_popular), :name => 'arvore[nome_popular_ids][]' %>
+		<%= label_tag :nome_popular_ids, nome_popular.nome %>
+		<br>
+	 <% end %>
 
 	</div>
 

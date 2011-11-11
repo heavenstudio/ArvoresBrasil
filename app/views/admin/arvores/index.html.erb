@@ -17,6 +17,9 @@
     	<td class="list_top"> Pais </td>
     	<td class="list_top"> Extinção </td>
     	<td class="list_top"> Folha Ciclo </td>
+    	<td class="list_top"> Crescimento </td>
+    	<td class="list_top"> Meses de Floração </td>
+    	<td class="list_top"> Meses de Frutificação </td>
 		<td class="list_top">Edit</td>
 		<td class="list_top">Excluir</td>
 	</tr>
@@ -49,6 +52,9 @@
     	<td> <%= arvore.pais.nome %></td>
     	<td> <%= arvore.extincao.grau %></td>
     	<td> <%= arvore.folha_ciclo.ciclo %></td>
+    	<td> <%= arvore.crescimento %></td>
+    	<td> Meses de Floração </td>
+    	<td > Meses de Frutificação </td>
     	<td><%= link_to 'Edit', edit_admin_arvore_path(arvore) %></td>
     	<td align="right"><%= link_to 'X', [:admin,arvore], confirm: 'Excluir?', method: :delete %></td>
 	</tr>
