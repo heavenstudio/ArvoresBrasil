@@ -13,6 +13,7 @@ ArvoresBrasil::Application.routes.draw do
 
         
   namespace :admin do  
+    root :to => 'home#index'
     resources :arvores
     resources :familias
     resources :paises

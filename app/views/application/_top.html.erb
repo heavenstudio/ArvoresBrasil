@@ -3,11 +3,11 @@
     <div class="logo"><h1><%= link_to "Árvores Brasil", root_path %></h1></div>
     <div class="menu_nav">
       <ul>
-        <li class="active"><a href="index.html">Home</a></li>
-        <li><a href="support.html">Partes da Árvore</a></li>
-        <li><a href="arvore_pq_plantar.html">Porque Plantar</a></li>
-        <li><a href="blog.html">Lista de Espécies</a></li>
-        <li><a href="contact.html">Login</a></li>
+	  		<li><%= link_to "Home", root_path %></li>
+      	<li><%= link_to "Partes da Árvore", "/page/arvore_partes" %></li>
+      	<li><%= link_to "Porque Plantar", "/page/arvore_porque_plantar" %></li>
+	  		<li><%= link_to "Login", root_path %></li>
+		  	<li><%= link_to "Admin", admin_root_path %></li>
       </ul>
     </div>
     <div class="clr"></div>
