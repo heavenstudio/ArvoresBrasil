@@ -1,15 +1,49 @@
 www.ArvoresBrasil.com.br de PHP para RoR.
 
-Me dedico a esta migração nas horas vagas, e com muita paixão.
+Me dedico à esta migração nas horas vagas, e com muita paixão.
 Ao final, quero que este projeto seja um bom exemplo de código RoR.
 Se você pode ajudar, será muito bem vindo!
 
 
-Algumas caracteristicas do projeto:
+Algumas características do projeto:
 - gem 'rails', '3.1.0.rc8'
 - gem 'mysql2', '0.3.6'
 - gem "will_paginate"
 - Template Inheritance (http://railscasts.com/episodes/269-template-inheritance)
 
 
-Veja as Issues que você pode ajudar !
+Estou tendo problemas simples como por exemplo:
+
+1-
+Seguindo o site: http://andafter.org/blogs/odesenvolvedor/publicacoes/associao-has_many-em-rails-com-mltiplos-checkboxes.html
+A associação has_many :through foi feita, mas em: localhost:3000/admin/arvores/new
+está com problemas
+
+2-
+Em localhost:3000/admin/arvores o problema deve ser o mesmo..
+Acredito ser algum problema com o Inflections, pois já fiz o teste igual ao site acima (andafter.org…) e dá certo…
+
+3-
+Páginas estáticas, como faz ?
+
+4-
+Uma coisa não ficou clara pra mim sobre o Template Inheritance: os Controllers precisam mesmo ser duplicados no site normal e no admin ?
+
+5-
+Em alguns casos, como por exemplo familia/new, gostaria que depois do creste fosse direcionado para Index e não para Show (mantendo a mensagem de "criado com sucesso"
+
+
+
+:: Próximas features que o site via precisar::
+
+1-
+Login com níveis de acesso 
+Admim (como está hoje)
+Moderador(alguns controles do Admin + moderação de Informações portadas por Usuários) 
+Usuário:
+- Adicionar comentários às Árvores
+- Adicionar fotos
+- "Esta informação foi Útil" tipo Yahoo (sobre os comentários e fotos postados por outros usuários)
+- O que for postado pelo Usuário é publicado de inmediato. o Moderador pode editar ou excluir se necessário
+
+
