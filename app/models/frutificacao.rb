@@ -1,3 +1,3 @@
 class Frutificacao < ActiveRecord::Base
-  belongs_to :arvores
+  belongs_to :arvore
 end

@@ -3,9 +3,9 @@
 		<h3>Nome</h3>
 		<b>Família: </b>  <%= @arvore.familia.nome %> </br>
 		<b>Científico: </b>  xxxxx xxxxx </br>
-		<b>Populares: </b>
-		<% @arvore.nomes_populares.each do |nome_popular| %>
-			<%= nome_popular.nome %>,
+		<b>Populares: </b><br>
+		<% @arvore.nomes_populares.order("ordem").each do |nome_popular| %>
+			<%= nome_popular.nome %> <br>
 		<% end %>
 
 	</td>
@@ -32,8 +32,16 @@
 		<b>Folha ciclo: </b>  <%= @arvore.folha_ciclo.ciclo %>  </br>
 		<b>Características: </b>  xxxxx xxxxx  </br>
 		<b>Crescimento: </b>  <%= @arvore.crescimento.nome %>  </br>
-		<b>Floração: </b>  xxxxx xxxxx  </br>
-		<b>Frutificação: </b>  xxxxx xxxxx  </br>
+		<b>Floração: </b>  
+			<% @arvore.floracoes.each do |floracao| %>
+				<%= floracao.mes %>,
+			<% end %>
+		</br>
+		<b>Frutificação: </b>
+			<% @arvore.frutificacoes.each do |frutificacao| %>
+				<%= frutificacao.mes %>,
+			<% end %>
+		</br>
 		<b>Extinção: </b>  <%= @arvore.extincao.grau %>  </br>
 	</td></tr>
 </table>

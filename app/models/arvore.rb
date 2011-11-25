@@ -1,14 +1,14 @@
 class Arvore < ActiveRecord::Base
 
 
-  has_many :arvore_nomes_populares, :dependent => :destroy
+  has_many :arvore_nomes_populares, :order => :ordem
   has_many :nomes_populares, :through => :arvore_nomes_populares
 
   has_many :bibliografias, :dependent => :destroy
   has_many :livros, :through => :bibliografias
   
-  has_many :floracao
-  has_many :frutificacao
+  has_many :floracoes, :dependent => :destroy
+  has_many :frutificacoes, :dependent => :destroy
   
   belongs_to :familia
   belongs_to :extincao

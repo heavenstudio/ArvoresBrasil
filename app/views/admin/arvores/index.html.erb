@@ -35,26 +35,30 @@
 	<% end %>
     <td class="list"> <%= link_to arvore.id , [:admin, arvore] %></td> 
 
-    <td> <!-- COMO FAZ PARA PEGAR APENAS O PRIMEIRO ? (arvore.populares.first.nome ?)-->
-			<% arvore.nomes_populares.each do |nome_popular| %>
-				<%= nome_popular.nome %>,
-			<% end %>
-		</td>
+    <td> <%= arvore.nomes_populares.order("ordem").first.nome %>	</td>
 
 	
 		<td> <%= arvore.altura_minima  %> - <%= arvore.altura_maxima %></td>
-    	<td> <%= arvore.dap_minimo %> - <%= arvore.dap_maximo %></td>
-    	<td> <%= arvore.copa_diametro_minimo %> - <%= arvore.copa_diametro_maximo %></td>
-    	<td> <%= arvore.sementes_kg %></td> 
-    	<td> <%= arvore.sementes_viabilidade %></td>
-    	<td> <%= truncate(arvore.observacao, :length => 7) %></td>
-    	<td> <%= arvore.familia.nome %></td>
-    	<td> <%= arvore.pais.nome %></td>
-    	<td> <%= arvore.extincao.grau %></td>
-    	<td> <%= arvore.folha_ciclo.ciclo %></td>
-    	<td> <%= arvore.crescimento %></td>
-    	<td> Meses de Floração </td>
-    	<td > Meses de Frutificação </td>
+		<td> <%= arvore.dap_minimo %> - <%= arvore.dap_maximo %></td>
+		<td> <%= arvore.copa_diametro_minimo %> - <%= arvore.copa_diametro_maximo %></td>
+    <td> <%= arvore.sementes_kg %></td> 
+    <td> <%= arvore.sementes_viabilidade %></td>
+    <td> <%= truncate(arvore.observacao, :length => 7) %></td>
+    <td> <%= arvore.familia.nome %></td>
+    <td> <%= arvore.pais.nome %></td>
+   	<td> <%= arvore.extincao.grau %></td>
+   	<td> <%= arvore.folha_ciclo.ciclo %></td>
+   	<td> <%= arvore.crescimento.nome %></td> 
+	  <td> 
+			<% arvore.floracoes.each do |floracao| %>
+				<%= floracao.mes %>,
+			<% end %>
+		</td>
+    <td >
+				<% arvore.frutificacoes.each do |frutificacao| %>
+					<%= frutificacao.mes %>,
+				<% end %>
+    	</td>
     	<td><%= link_to 'Edit', edit_admin_arvore_path(arvore) %></td>
     	<td align="right"><%= link_to 'X', [:admin,arvore], confirm: 'Excluir?', method: :delete %></td>
 	</tr>
