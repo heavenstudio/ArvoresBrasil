@@ -28,8 +28,6 @@ ActiveSupport::Inflector.inflections do |inflect|
   inflect.irregular 'arvore_nome_popular', 'arvore_nomes_populares'
     inflect.irregular 'ArvoreNomePopular', 'ArvoreNomesPopulares'
 
-  inflect.irregular 'nome_cientifico', 'nomes_cientificos'
-    inflect.irregular 'NomeCientifico', 'NomesCientificos'
    inflect.irregular 'arvore_nome_cientifico', 'arvore_nomes_cientificos'
     inflect.irregular 'ArvoreNomeCientifico', 'ArvoreNomesCientificos'
    

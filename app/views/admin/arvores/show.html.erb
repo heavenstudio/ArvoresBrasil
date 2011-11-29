@@ -2,7 +2,13 @@
 	<tr><td width="50%" valign="top">
 		<h3>Nome</h3>
 		<b>Família: </b>  <%= @arvore.familia.nome %> </br>
-		<b>Científico: </b>  xxxxx xxxxx </br>
+		<b>Científico: </b>  
+		
+		<% @arvore.generos.each do |genero| %>
+			<%= genero.nome %> <br>
+		<% end %>
+				
+		</br>
 		<b>Populares: </b><br>
 		<% @arvore.nomes_populares.order("ordem").each do |nome_popular| %>
 			<%= nome_popular.nome %> <br>

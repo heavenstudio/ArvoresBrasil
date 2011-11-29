@@ -11,7 +11,16 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111031223712) do
+ActiveRecord::Schema.define(:version => 20111129223520) do
+
+  create_table "arvore_nomes_cientificos", :id => false, :force => true do |t|
+    t.integer  "arvore_id",               :null => false
+    t.integer  "genero_id",               :null => false
+    t.string   "especie",                 :null => false
+    t.integer  "ordem",      :limit => 1
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "arvore_nomes_populares", :id => false, :force => true do |t|
     t.integer  "arvore_id",                    :null => false

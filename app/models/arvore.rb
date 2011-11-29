@@ -4,6 +4,9 @@ class Arvore < ActiveRecord::Base
   has_many :arvore_nomes_populares, :order => :ordem
   has_many :nomes_populares, :through => :arvore_nomes_populares
 
+  has_many :arvore_nomes_cientificos, :order => :ordem
+  has_many :generos, :through => :arvore_nomes_cientificos
+
   has_many :bibliografias, :dependent => :destroy
   has_many :livros, :through => :bibliografias
   
