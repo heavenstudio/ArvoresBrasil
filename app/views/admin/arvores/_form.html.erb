@@ -25,6 +25,12 @@
 	<%= f.text_field :copa_diametro_maximo, :size => 2, :maxlength=>"3", :class=>"form_campos"   %>
 	</div>
 	<div>
+    <%= f.label :raiz_id %><br />
+    <%= f.collection_select(:raiz_id,
+         Raiz.order('nome'),
+         :id, :nome, {:prompt => true}, :class=>"form_campos") %>
+	</div>
+	<div>
 	<%= f.label :sementes_kg  %>
 	<%= f.text_field :sementes_kg, :size => 4, :maxlength=>"5", :class=>"form_campos"   %>
 	</div>

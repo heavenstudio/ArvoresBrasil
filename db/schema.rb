@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(:version => 20111031223712) do
     t.datetime "updated_at"
     t.integer  "familia_id",                        :null => false
     t.integer  "pais_id"
+    t.integer  "raiz_id",                           :null => false
     t.integer  "crescimento_id",                    :null => false
     t.integer  "germinacao_tempo_id",               :null => false
     t.integer  "germinacao_taxa_id",                :null => false
@@ -121,5 +122,7 @@ ActiveRecord::Schema.define(:version => 20111031223712) do
     t.string "nome"
     t.text   "descricao"
   end
+
+  add_index "raizes", ["nome"], :name => "index_raizes_on_nome", :unique => true
 
 end

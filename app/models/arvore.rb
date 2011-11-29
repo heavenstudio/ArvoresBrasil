@@ -13,6 +13,7 @@ class Arvore < ActiveRecord::Base
   belongs_to :familia
   belongs_to :extincao
   belongs_to :pais
+  belongs_to :raiz
   belongs_to :germinacao_taxa
   belongs_to :germinacao_tempo
   belongs_to :folha_ciclo

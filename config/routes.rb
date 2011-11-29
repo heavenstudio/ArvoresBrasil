@@ -17,6 +17,7 @@ ArvoresBrasil::Application.routes.draw do
     resources :arvores
     resources :familias
     resources :paises
+    resources :raizes
     resources :crescimentos
     resources :generos
     resources :germinacao_taxas

@@ -4,5 +4,7 @@ class CreateRaizes < ActiveRecord::Migration
       t.string  :nome
       t.text    :descricao
     end
+    add_index :raizes, :nome, :unique
+    add_column :arvores, :raiz_id, :integer, :null => false    
   end
 end
