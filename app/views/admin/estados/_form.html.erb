@@ -1,0 +1,26 @@
+<%= form_for([:admin, @estado]) do |f| %>
+<%= render 'shared/error_messages', :object => f.object %>
+
+  <div>
+    <%= f.label :nome %>
+    <%= f.text_field :nome, :class => "text" %>
+  </div>
+
+  <div>
+    <%= f.label :sigla %>
+    <%= f.text_field :sigla, :class => "text" %>
+  </div>
+
+	<div>
+    <%= f.label :pais_id %><br />
+    <%= f.collection_select(:pais_id,
+         Pais.order('nome'),
+         :id, :nome, {:prompt => true}, :class=>"form_campos") %>
+	</div>
+
+
+  <div>
+    <%= submit_tag "Criar", :class => "send"  %>
+
+  </div>
+<% end %>

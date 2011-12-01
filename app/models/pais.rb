@@ -3,4 +3,6 @@ class Pais < ActiveRecord::Base
   validates_uniqueness_of :nome, :message => " - nome ja cadastrado"
 
   has_many :arvores
+  has_many :estados
+  
 end

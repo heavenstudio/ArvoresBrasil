@@ -17,6 +17,7 @@ ArvoresBrasil::Application.routes.draw do
     resources :arvores
     resources :familias
     resources :paises
+    resources :estados
     resources :raizes
     resources :crescimentos
     resources :generos

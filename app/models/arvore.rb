@@ -10,9 +10,14 @@ class Arvore < ActiveRecord::Base
   has_many :bibliografias, :dependent => :destroy
   has_many :livros, :through => :bibliografias
   
+  has_many :arvore_estados
+  has_many :estados, :through => :arvore_estados
+  
+  
   has_many :floracoes, :dependent => :destroy
   has_many :frutificacoes, :dependent => :destroy
-  
+
+
   belongs_to :familia
   belongs_to :extincao
   belongs_to :pais

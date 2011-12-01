@@ -11,7 +11,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111129223520) do
+ActiveRecord::Schema.define(:version => 20111130230403) do
+
+  create_table "arvore_estados", :id => false, :force => true do |t|
+    t.integer  "arvore_id",  :null => false
+    t.integer  "estado_id",  :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "arvore_nomes_cientificos", :id => false, :force => true do |t|
     t.integer  "arvore_id",               :null => false
@@ -64,6 +71,12 @@ ActiveRecord::Schema.define(:version => 20111129223520) do
   end
 
   add_index "crescimentos", ["nome"], :name => "index_crescimentos_on_nome", :unique => true
+
+  create_table "estados", :force => true do |t|
+    t.string  "nome"
+    t.string  "sigla"
+    t.integer "pais_id"
+  end
 
   create_table "extincoes", :force => true do |t|
     t.string "grau", :null => false

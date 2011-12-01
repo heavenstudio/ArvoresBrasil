@@ -1,0 +1,17 @@
+<h3>Admin - Estados</h3>
+
+<%= link_to 'Novo', new_admin_estado_path %>
+</br></br>
+<table>
+  <% for estado in @estados %>
+	<tr>
+	<td> <%= estado.id %></td> 
+    <td> <%= estado.nome    %></td> 
+    <td> <%= estado.sigla    %></td> 
+    <td> <%= estado.pais.nome    %></td> 
+    <td><%= link_to 'Editar', edit_admin_estado_path(estado) %></td>
+    <td><%= link_to 'X', [:admin,estado], confirm: 'Confirma a exclusão?', method: :delete %></td>
+	</tr>
+  <% end %>
+</table>
+<%= will_paginate @estados %>
