@@ -1,126 +1,172 @@
 <%= stylesheet_link_tag "arvores" %>
 
 
-<div >
-	
+
 	
 <%= form_for([:admin, @arvore]) do |f| %>
 <%= render 'shared/error_messages', :object => f.object %>
-	<div>
-	Altura
-	<%= f.text_field :altura_minima , :size => 2, :maxlength=>"3", :class=>"form_campos"   %>
-	-
-	<%= f.text_field :altura_maxima, :size => 2, :maxlength=>"3", :class=>"form_campos"    %>
-	</div>
-	<div>
-	DAP
-	<%= f.text_field :dap_minimo, :size => 2, :maxlength=>"3", :class=>"form_campos"   %>
-	-
-	<%= f.text_field :dap_maximo, :size => 2, :maxlength=>"3", :class=>"form_campos"   %>
-	</div>
-	<div>
-	Diâmetro da Copa
-	<%= f.text_field :copa_diametro_minimo, :size => 2, :maxlength=>"3", :class=>"form_campos"   %>
-	-
-	<%= f.text_field :copa_diametro_maximo, :size => 2, :maxlength=>"3", :class=>"form_campos"   %>
-	</div>
-	<div>
-    <%= f.label :raiz_id %><br />
-    <%= f.collection_select(:raiz_id,
-         Raiz.order('nome'),
-         :id, :nome, {:prompt => true}, :class=>"form_campos") %>
-	</div>
-	<div>
-	<%= f.label :sementes_kg  %>
-	<%= f.text_field :sementes_kg, :size => 4, :maxlength=>"5", :class=>"form_campos"   %>
-	</div>
-	<div>
-	<%= f.label :sementes_viabilidade  %>
-	<%= f.text_field :sementes_viabilidade, :size => 2, :maxlength=>"2", :class=>"form_campos"   %>
-	</div>
-	<div>
-	<%= f.label :observacao  %>
-	<%= f.text_area :observacao, :size => "30x5"  %>
-	</div>
 
-	<div>
-    <%= f.label :familia_id %><br />
-    <%= f.collection_select(:familia_id,
-         Familia.order('nome'),
-         :id, :nome, {:prompt => true}, :class=>"form_campos") %>
-	</div>
+<table width="100%">
+	<tr><td width="50%" valign="top">
+		<h3>Nome</h3>
+		<b>Família: </b> 
+	    <%= f.collection_select(:familia_id, Familia.order('nome'),
+	         :id, :nome, {:prompt => true}, :class=>"form_campos") %>		
+		</br>
+		<b>Científico: </b>  
+		
 
-	<div>
-    <%= f.label :pais_id %><br />
-    <%= f.collection_select(:pais_id,
-         Pais.order('nome'),
-         :id, :nome, {:prompt => true}, :class=>"form_campos") %>
-	</div>
+		<% Genero.all.each do |genero| %>
+			<%= check_box_tag :genero_ids, genero.id, @arvore.generos.include?(genero), :name => 'arvore[genero_ids][]' %>
+			<%= label_tag :genero_ids, genero.nome %>
+			<br>
+	 	<% end %>
+
+		</br>
+		<b>Populares: </b><br>
+	 <!-- select_tag "popular", options_from_collection_for_select(Popular, "id", "nome") <br><br> -->
+
+		<% NomePopular.all.each do |nome_popular| %>
+			<%= check_box_tag :nome_popular_ids, nome_popular.id, @arvore.nomes_populares.include?(nome_popular), :name => 'arvore[nome_popular_ids][]' %>
+			<%= label_tag :nome_popular_ids, nome_popular.nome %>
+			<br>
+	 	<% end %>
+
+	</td>
 	
-	<div>
-    <%= f.label :extincao_id %><br />
-    <%= f.collection_select(:extincao_id,
-         Extincao.order('grau'),
-         :id, :grau, {:prompt => true}, :class=>"form_campos") %>
-	</div>
+	<td width="50%" valign="top">
+		<h3>Ocorrência</h3>
+		<b>País: </b>
+    	<%= f.collection_select(:pais_id, Pais.order('nome'),
+         :id, :nome, {:prompt => true}, :class=>"form_campos") %>
+		</br>
+		<b>Estados: </b>  XX, XX, XX, XX </br>
+		<b>Florestal: </b>  xxxxx xxxxx </br>
+		<b>Sucessão: </b>  xxxxx xxxxx </br>
+	</td></tr>
+</table>
 
-	<div>
-    <%= f.label :folha_ciclo_id %><br />
-    <%= f.collection_select(:folha_ciclo_id,
-         FolhaCiclo.order('ciclo'),
+<table width="100%">
+	<tr><td width="50%" valign="top">
+		<h3>Medidas</h3>
+		<b>Altura: </b>  
+			<%= f.text_field :altura_minima , :size => 2, :maxlength=>"3", :class=>"form_campos"   %> -
+			<%= f.text_field :altura_maxima, :size => 2, :maxlength=>"3", :class=>"form_campos"    %>
+		</br>
+		<b>DAP: </b> 
+			<%= f.text_field :dap_minimo, :size => 2, :maxlength=>"3", :class=>"form_campos"   %> -
+			<%= f.text_field :dap_maximo, :size => 2, :maxlength=>"3", :class=>"form_campos"   %>
+		</br>
+		<b>Copa: </b>  
+			<%= f.text_field :copa_diametro_minimo, :size => 2, :maxlength=>"3", :class=>"form_campos"   %> -
+			<%= f.text_field :copa_diametro_maximo, :size => 2, :maxlength=>"3", :class=>"form_campos"   %>
+		</br>
+		<b>Raiz: </b>  
+    	<%= f.collection_select(:raiz_id, Raiz.order('nome'),
+         :id, :nome, {:prompt => true}, :class=>"form_campos") %>
+		</br>
+
+	</td>
+	
+	<td width="50%" valign="top">
+		<h3>Características</h3>
+		<b>Folha ciclo: </b> 
+    	<%= f.collection_select(:folha_ciclo_id, FolhaCiclo.order('ciclo'),
          :id, :ciclo, {:prompt => true}, :class=>"form_campos") %>
-	</div>
-	
-	
-	<div>
-    <%= f.label :germinacao_taxa_id %><br />
-    <%= f.collection_select(:germinacao_taxa_id,
-         GerminacaoTaxa.order('taxa'),
-         :id, :taxa, {:prompt => true}, :class=>"form_campos") %>
-	</div>
-	
-	<div>
-    <%= f.label :germinacao_tempo_id %><br />
-    <%= f.collection_select(:germinacao_tempo_id,
-         GerminacaoTempo.order('tempo'),
-         :id, :tempo, {:prompt => true}, :class=>"form_campos") %>
-	</div>
-
-	<div>
-    <%= f.label :crescimento %><br />
-    <%= f.collection_select(:crescimento_id,
-         Crescimento.order('nome'),
+		</br>
+		<b>Características: </b>  
+		 
+		</br>
+		<b>Crescimento: </b>
+    	<%= f.collection_select(:crescimento_id, Crescimento.order('nome'),
          :id, :nome, {:prompt => true}, :class=>"form_campos") %>
-	</div>
+		</br>
+		<b>Floração: </b>  
+			<% @arvore.floracoes.each do |floracao| %>
+				<%= floracao.mes %>,
+			<% end %>
+		</br>
+		<b>Frutificação: </b>
+			<% @arvore.frutificacoes.each do |frutificacao| %>
+				<%= frutificacao.mes %>,
+			<% end %>
+		</br>
+		<b>Extinção: </b>  
+    	<%= f.collection_select(:extincao_id, Extincao.order('grau'),
+         :id, :grau, {:prompt => true}, :class=>"form_campos") %>
+		</br>
+	</td></tr>
+</table>
+
+
+
+<table width="100%">
+	<tr><td width="50%" valign="top"><h3>Utilização</h3>
+		<table>
+			<tr><td>
+				<b>Utilizações: </b>  xxxxx </br> xxxx xxxxx </br> xxxxx </br> xxxx xxxxx
+			</td></tr>
+		</table>
+	</td>
 	
-	<div>
-	Nomes Populares<br><br>
-	 select_tag "popular", options_from_collection_for_select(Popular, "id", "nome") <br><br>
+	<td width="50%" valign="top"><h3>Extração</h3>
+		<table>
+			<tr><td>
+				<b>Extrações: </b>  xxxxx </br> xxxx xxxxx </br> xxxxx </br> xxxx xxxxx
+			</td></tr>
+		</table>
+	</td></tr>
+</table>
 
 
-	 <% NomePopular.all.each do |nome_popular| %>
-		<%= check_box_tag :nome_popular_ids, nome_popular.id, @arvore.nomes_populares.include?(nome_popular), :name => 'arvore[nome_popular_ids][]' %>
-		<%= label_tag :nome_popular_ids, nome_popular.nome %>
-		<br>
-	 <% end %>
 
-	</div>
+<table width="100%">
+	<tr><td width="50%" valign="top"><h3>Semente</h3>
+		<table>
+			<tr><td>
+				<b>Por Kg: </b> <%= f.text_field :sementes_kg, :size => 4, :maxlength=>"5", :class=>"form_campos"   %>
+			</td></tr>
+			<tr><td>
+				<b>Viabilidade: </b> <%= f.text_field :sementes_viabilidade, :size => 2, :maxlength=>"2", :class=>"form_campos"   %>
+			</td></tr>
+			<tr><td>
+				<b>Emergência: </b>  
+		    	<%= f.collection_select(:germinacao_tempo_id, GerminacaoTempo.order('tempo'),
+		         :id, :tempo, {:prompt => true}, :class=>"form_campos") %>
+			</td></tr>
+			<tr><td>
+				<b>Germinação: </b>  
+		    	<%= f.collection_select(:germinacao_taxa_id, GerminacaoTaxa.order('taxa'),
+		         :id, :taxa, {:prompt => true}, :class=>"form_campos") %>
+			</td></tr>
+		</table>
+	</td>
+	
+	<td width="50%" valign="top"><h3>Bibliografia</h3>
+		<table>
+			<tr><td>
+				<b>Livros: </b>  xxxx
+				  <% Livro.all.each do |livro| %>
+						<%= check_box_tag :livro_ids, livro.id, @arvore.livros.include?(livro), :name => 'arvore[livro_ids][]' %>
+						<%= label_tag :livro_ids, livro.nome %>
+						<br>
+				 	<% end %>
+			</td></tr>
+		</table>
+	</td></tr>
+</table>
 
-	<div>
-	Bibliografia<br><br>
-	  <% Livro.all.each do |livro| %>
-		<%= check_box_tag :livro_ids, livro.id, @arvore.livros.include?(livro), :name => 'arvore[livro_ids][]' %>
-		<%= label_tag :livro_ids, livro.nome %>
-		<br>
-	 <% end %>
-	</div>
+
+<table  width="100%">
+	<tr><td valign="top"><h3>Observação</h3>
+		<%= f.text_area :observacao, :size => "30x5"  %>
+	</td></tr>
+</table>
 
 
-  	<div>
-		<p></p>
-		<%= f.submit %>
-  	</div>
+
+<p></p>
+<%= f.submit %>
+
+
 <% end %>
-
-
-</div>
