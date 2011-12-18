@@ -5,22 +5,17 @@
 </br></br>
 <table width="80%" border="0" cellspacing="0"  class="texto_peq" >
 	<tr>
-    	<td class="list_top"> Cod </td> 
+    <td class="list_top"> Cod </td> 
 		<td class="list_top"> Nome Popular </td>
-    	<td class="list_top"> Altura </td>
-    	<td class="list_top"> DAP </td>
-    	<td class="list_top"> Diâmetro <br> Copa </td>
-    	<td class="list_top"> Raiz </td>
-    	<td class="list_top"> Sementes <br> por kg </td>
-    	<td class="list_top"> Sementes <br> viabilidade </td>
-    	<td class="list_top"> Obs </td>
-    	<td class="list_top"> Família </td>
-    	<td class="list_top"> Pais </td>
-    	<td class="list_top"> Extinção </td>
-    	<td class="list_top"> Folha Ciclo </td>
-    	<td class="list_top"> Crescimento </td>
-    	<td class="list_top"> Meses de Floração </td>
-    	<td class="list_top"> Meses de Frutificação </td>
+    <td class="list_top"> Altura </td>
+    <td class="list_top"> DAP </td>
+    <td class="list_top"> Diâmetro <br> Copa </td>
+    <td class="list_top"> Raiz </td>
+    <td class="list_top"> Sementes <br> por kg </td>
+    <td class="list_top"> Sementes <br> viabilidade </td>
+    <td class="list_top"> Obs </td>
+    <td class="list_top"> Família </td>
+    <td class="list_top"> Pais </td>
 		<td class="list_top">Edit</td>
 		<td class="list_top">Excluir</td>
 	</tr>
@@ -49,21 +44,9 @@
     <td> <%= truncate(arvore.observacao, :length => 7) %></td>
     <td> <%= arvore.familia.nome %></td>
     <td> <%= arvore.pais.nome %></td>
-   	<td> <%= arvore.extincao.grau %></td>
-   	<td> <%= arvore.folha_ciclo.ciclo %></td>
-   	<td> <%= arvore.crescimento.nome %></td> 
-	  <td> 
-			<% arvore.floracoes.each do |floracao| %>
-				<%= floracao.mes %>,
-			<% end %>
-		</td>
-    <td >
-				<% arvore.frutificacoes.each do |frutificacao| %>
-					<%= frutificacao.mes %>,
-				<% end %>
-    	</td>
-    	<td><%= link_to 'Edit', edit_admin_arvore_path(arvore) %></td>
-    	<td align="right"><%= link_to 'X', [:admin,arvore], confirm: 'Excluir?', method: :delete %></td>
+
+    <td><%= link_to 'Edit', edit_admin_arvore_path(arvore) %></td>
+    <td align="right"><%= link_to 'X', [:admin,arvore], confirm: 'Excluir?', method: :delete %></td>
 	</tr>
   	<% end %>
 </table>

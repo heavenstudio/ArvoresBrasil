@@ -20,7 +20,12 @@ ActiveSupport::Inflector.inflections do |inflect|
 
   inflect.irregular 'arvore_nome_cientifico', 'arvore_nomes_cientificos'
     inflect.irregular 'ArvoreNomeCientifico', 'ArvoreNomesCientificos'
-   
+
+
+  inflect.irregular 'utilidade_tipo', 'utilidade_tipos'
+  inflect.irregular 'utilidade', 'utilidades'
+  inflect.irregular 'arvore_utilidade', 'arvore_utilidades'
+    inflect.irregular 'ArvoreUtilidade', 'ArvoreUtilidades'
       
   inflect.irregular 'genero', 'generos'
   inflect.irregular 'extincao', 'extincoes'

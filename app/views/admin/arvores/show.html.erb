@@ -9,7 +9,7 @@
 		<% end %>
 				
 		</br>
-		<b>Populares: </b><br>
+		<b>Nomes Populares: </b><br>
 		<% @arvore.nomes_populares.order("ordem").each do |nome_popular| %>
 			<%= nome_popular.nome %> <br>
 		<% end %>
@@ -57,10 +57,14 @@
 
 
 <table width="100%">
-	<tr><td width="50%" valign="top"><h3>Utilização</h3>
+	<tr><td width="50%" valign="top"><h3>Utilidades</h3>
 		<table>
 			<tr><td>
-				<b>Utilizações: </b>  xxxxx </br> xxxx xxxxx </br> xxxxx </br> xxxx xxxxx
+				<b>Utilidades: </b>  </br> 
+				<% @arvore.utilidades.order("nome").each do |utilidade| %>
+					<%= utilidade.nome %> <br>
+				<% end %>
+
 			</td></tr>
 		</table>
 	</td>
@@ -80,7 +84,7 @@
 	<tr><td width="50%" valign="top"><h3>Semente</h3>
 		<table>
 			<tr><td>
-				<b>Por Kg: </b>  xxxx xxxx
+				<b>Por Kg: </b>  <%= @arvore.sementes_kg %>
 			</td></tr>
 			<tr><td>
 				<b>Emergência: </b>  <%= @arvore.germinacao_tempo.tempo %>
@@ -94,7 +98,7 @@
 	<td width="50%" valign="top"><h3>Bibliografia</h3>
 		<table>
 			<tr><td>
-				<b>Livros: </b>  xxxx
+				<b>Livros: </b> 
 			    <% @arvore.livros.each do |livro| %>
 			     <%= livro.nome %>
 			    <% end %>

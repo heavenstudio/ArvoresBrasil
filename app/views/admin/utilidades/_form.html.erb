@@ -1,0 +1,19 @@
+<%= form_for([:admin, @utilidade]) do |f| %>
+<%= render 'shared/error_messages', :object => f.object %>
+
+	<div>
+  	Utilidade Tipo <br>
+	  <%= f.collection_select(:utilidade_tipo_id, UtilidadeTipo.order('nome'),
+	       :id, :nome, {:prompt => true}, :class=>"form_campos") %>
+	</div>
+
+  <div>
+    <%= f.label :nome %>
+    <%= f.text_field :nome, :class => "text" %>
+  </div>
+
+  <div>
+    <%= submit_tag "Criar", :class => "send"  %>
+
+  </div>
+<% end %>

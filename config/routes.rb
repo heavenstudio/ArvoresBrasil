@@ -23,10 +23,13 @@ ArvoresBrasil::Application.routes.draw do
     resources :generos
     resources :germinacao_taxas
     resources :germinacao_tempos
+    resources :utilidade_tipos
+    resources :utilidades
     resources :extincoes    
     resources :nomes_populares
     resources :folha_ciclos
     resources :livros
+    
   end
 
 end

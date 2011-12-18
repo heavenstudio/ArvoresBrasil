@@ -7,6 +7,9 @@ class Arvore < ActiveRecord::Base
   has_many :arvore_nomes_cientificos, :order => :ordem
   has_many :generos, :through => :arvore_nomes_cientificos
 
+  has_many :arvore_utilidades
+  has_many :utilidades, :through => :arvore_utilidades
+
   has_many :bibliografias, :dependent => :destroy
   has_many :livros, :through => :bibliografias
   
@@ -23,7 +26,7 @@ class Arvore < ActiveRecord::Base
   belongs_to :pais
   belongs_to :raiz
   belongs_to :germinacao_taxa
-  belongs_to :germinacao_tempo
+  belongs_to :germinacao_tempo  
   belongs_to :folha_ciclo
   belongs_to :crescimento    
   

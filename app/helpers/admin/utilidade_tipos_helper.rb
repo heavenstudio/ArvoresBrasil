@@ -1,0 +1,2 @@
+module Admin::UtilidadeTiposHelper
+end

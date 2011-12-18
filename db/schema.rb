@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111130230403) do
+ActiveRecord::Schema.define(:version => 20111218205046) do
 
   create_table "arvore_estados", :id => false, :force => true do |t|
     t.integer  "arvore_id",  :null => false
@@ -35,6 +35,11 @@ ActiveRecord::Schema.define(:version => 20111130230403) do
     t.integer  "ordem",           :limit => 1
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "arvore_utilidades", :force => true do |t|
+    t.integer "arvore_id",    :null => false
+    t.integer "utilidade_id", :null => false
   end
 
   create_table "arvores", :force => true do |t|
@@ -146,5 +151,16 @@ ActiveRecord::Schema.define(:version => 20111130230403) do
   end
 
   add_index "raizes", ["nome"], :name => "index_raizes_on_nome", :unique => true
+
+  create_table "utilidade_tipos", :force => true do |t|
+    t.string "nome"
+  end
+
+  add_index "utilidade_tipos", ["nome"], :name => "index_utilidade_tipos_on_nome", :unique => true
+
+  create_table "utilidades", :force => true do |t|
+    t.integer "utilidade_tipo_id", :null => false
+    t.string  "nome"
+  end
 
 end

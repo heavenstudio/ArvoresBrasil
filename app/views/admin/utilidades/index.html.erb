@@ -1,0 +1,15 @@
+<h3>Admin - utilidades</h3>
+
+<%= link_to 'Nova utilidade', new_admin_utilidade_path %>
+</br></br>
+<table>
+  <% for utilidade in @utilidades %>
+	<tr>
+		<td> <%= utilidade.id %></td> 
+    <td> <%= utilidade.utilidade_tipo.nome %></td> 
+		<td> <%= utilidade.nome    %></td> 
+    <td><%= link_to 'Editar', edit_admin_utilidade_path(utilidade) %></td>
+    <td><%= link_to 'X', [:admin,utilidade], confirm: 'Confirma a exclusão?', method: :delete %></td>
+	</tr>
+  <% end %>
+</table>

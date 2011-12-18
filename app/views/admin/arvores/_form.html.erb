@@ -14,18 +14,13 @@
 	         :id, :nome, {:prompt => true}, :class=>"form_campos") %>		
 		</br>
 		<b>Científico: </b>  
-		
-
 		<% Genero.all.each do |genero| %>
 			<%= check_box_tag :genero_ids, genero.id, @arvore.generos.include?(genero), :name => 'arvore[genero_ids][]' %>
 			<%= label_tag :genero_ids, genero.nome %>
 			<br>
 	 	<% end %>
 
-		</br>
 		<b>Populares: </b><br>
-	 <!-- select_tag "popular", options_from_collection_for_select(Popular, "id", "nome") <br><br> -->
-
 		<% NomePopular.all.each do |nome_popular| %>
 			<%= check_box_tag :nome_popular_ids, nome_popular.id, @arvore.nomes_populares.include?(nome_popular), :name => 'arvore[nome_popular_ids][]' %>
 			<%= label_tag :nome_popular_ids, nome_popular.nome %>
@@ -101,10 +96,15 @@
 
 
 <table width="100%">
-	<tr><td width="50%" valign="top"><h3>Utilização</h3>
+	<tr><td width="50%" valign="top"><h3>Utilidades</h3>
 		<table>
 			<tr><td>
-				<b>Utilizações: </b>  xxxxx </br> xxxx xxxxx </br> xxxxx </br> xxxx xxxxx
+				<b>Utilidades: </b>  xxxxx </br>
+				<% Utilidade.all.each do |utilidade| %>
+					<%= check_box_tag :utilidade_ids, utilidade.id, @arvore.utilidades.include?(utilidade), :name => 'arvore[utilidade_ids][]' %>
+					<%= label_tag :utilidade_ids, utilidade.nome %>
+					<br>
+			 	<% end %>
 			</td></tr>
 		</table>
 	</td>
