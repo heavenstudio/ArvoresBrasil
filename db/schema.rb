@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111218205046) do
+ActiveRecord::Schema.define(:version => 20111219010637) do
 
   create_table "arvore_estados", :id => false, :force => true do |t|
     t.integer  "arvore_id",  :null => false
@@ -144,6 +144,12 @@ ActiveRecord::Schema.define(:version => 20111218205046) do
   end
 
   add_index "paises", ["nome"], :name => "index_paises_on_nome", :unique => true
+
+  create_table "partes", :force => true do |t|
+    t.string "nome", :null => false
+  end
+
+  add_index "partes", ["nome"], :name => "index_partes_on_nome", :unique => true
 
   create_table "raizes", :force => true do |t|
     t.string "nome"

@@ -26,6 +26,8 @@ ActiveSupport::Inflector.inflections do |inflect|
   inflect.irregular 'utilidade', 'utilidades'
   inflect.irregular 'arvore_utilidade', 'arvore_utilidades'
     inflect.irregular 'ArvoreUtilidade', 'ArvoreUtilidades'
+
+  inflect.irregular 'parte', 'partes'
       
   inflect.irregular 'genero', 'generos'
   inflect.irregular 'extincao', 'extincoes'

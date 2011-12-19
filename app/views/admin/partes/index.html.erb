@@ -1,0 +1,14 @@
+<h3>Admin - Partes</h3>
+
+<%= link_to 'Nova Família', new_admin_parte_path %>
+</br></br>
+<table>
+  <% for parte in @partes %>
+	<tr>
+	<td> <%= parte.id %></td> 
+    <td> <%= parte.nome    %></td> 
+    <td><%= link_to 'Editar', edit_admin_parte_path(parte) %></td>
+    <td><%= link_to 'X', [:admin,parte], confirm: 'Confirma a exclusão?', method: :delete %></td>
+	</tr>
+  <% end %>
+</table>

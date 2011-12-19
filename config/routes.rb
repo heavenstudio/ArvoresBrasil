@@ -25,6 +25,7 @@ ArvoresBrasil::Application.routes.draw do
     resources :germinacao_tempos
     resources :utilidade_tipos
     resources :utilidades
+    resources :partes
     resources :extincoes    
     resources :nomes_populares
     resources :folha_ciclos
