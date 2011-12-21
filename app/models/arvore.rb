@@ -11,8 +11,12 @@ class Arvore < ActiveRecord::Base
   has_many :utilidades, :through => :arvore_utilidades
 
   has_many :arvore_parte_caracteristicas
-  has_many :partes, :through => :arvore_parte_caracteristicas
+  has_many :partes, :through => :arvore_parte_caracteristicas, :group => :parte_id #Muito maneiro isso !
   has_many :caracteristicas, :through => :arvore_parte_caracteristicas
+
+  #has_many :arvore_parte_produtos
+  #has_many :partes, :through => :arvore_parte_produtos, :group => :parte_id  #   ESTRAGA O DE CIMA !!!!! ???
+  #has_many :produtos, :through => :arvore_parte_produtos
   
   has_many :bibliografias, :dependent => :destroy
   has_many :livros, :through => :bibliografias

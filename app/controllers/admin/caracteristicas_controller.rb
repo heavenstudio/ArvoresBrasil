@@ -1,7 +1,7 @@
 module Admin
 class CaracteristicasController < BaseController
   def index
-    @caracteristicas = Caracteristica.order('nome')
+    @caracteristicas = Caracteristica.order("caracteristica_tipo_id")
     respond_to do |format|
       format.html # index.html.erb
     end
