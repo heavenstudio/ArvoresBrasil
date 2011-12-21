@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111221002848) do
+ActiveRecord::Schema.define(:version => 20111221201731) do
 
   create_table "arvore_estados", :id => false, :force => true do |t|
     t.integer  "arvore_id",  :null => false
@@ -40,7 +40,13 @@ ActiveRecord::Schema.define(:version => 20111221002848) do
   create_table "arvore_parte_caracteristicas", :force => true do |t|
     t.integer "arvore_id",         :null => false
     t.integer "parte_id",          :null => false
-    t.integer "caractaristica_id", :null => false
+    t.integer "caracteristica_id", :null => false
+  end
+
+  create_table "arvore_parte_produtos", :force => true do |t|
+    t.integer "arvore_id",  :null => false
+    t.integer "parte_id",   :null => false
+    t.integer "produto_id", :null => false
   end
 
   create_table "arvore_utilidades", :force => true do |t|
@@ -182,6 +188,19 @@ ActiveRecord::Schema.define(:version => 20111221002848) do
   end
 
   add_index "partes", ["nome"], :name => "index_partes_on_nome", :unique => true
+
+  create_table "produto_tipos", :force => true do |t|
+    t.string "nome"
+  end
+
+  add_index "produto_tipos", ["nome"], :name => "index_produto_tipos_on_nome", :unique => true
+
+  create_table "produtos", :force => true do |t|
+    t.integer "produto_tipo_id", :null => false
+    t.string  "nome"
+  end
+
+  add_index "produtos", ["nome"], :name => "index_produtos_on_nome", :unique => true
 
   create_table "raizes", :force => true do |t|
     t.string "nome"

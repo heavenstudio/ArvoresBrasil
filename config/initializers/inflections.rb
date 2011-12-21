@@ -35,7 +35,13 @@ ActiveSupport::Inflector.inflections do |inflect|
     inflect.irregular 'CaracteristicaTipo', 'CaracteristicaTipos'
   inflect.irregular 'arvore_parte_caracteristica', 'arvore_parte_caracteristicas'
     inflect.irregular 'ArvoreParteCaracteristica', 'ArvoreParteCaracteristicas'                    
-        
+
+  inflect.irregular 'produto', 'produtos'
+  inflect.irregular 'produto_tipo', 'produto_tipos'
+    inflect.irregular 'ProdutoTipo', 'ProdutoTipos'
+  inflect.irregular 'arvore_parte_produto', 'arvore_parte_produtos'
+    inflect.irregular 'ArvoreParteProduto', 'ArvoreParteProdutos'
+
   inflect.irregular 'genero', 'generos'
   inflect.irregular 'extincao', 'extincoes'
   inflect.irregular 'livro', 'livros'
