@@ -26,6 +26,9 @@ ArvoresBrasil::Application.routes.draw do
     resources :utilidade_tipos
     resources :utilidades
     resources :partes
+    resources :caracteristica_tipos
+    resources :caracteristicas
+
     resources :extincoes    
     resources :nomes_populares
     resources :folha_ciclos

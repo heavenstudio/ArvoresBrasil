@@ -10,6 +10,10 @@ class Arvore < ActiveRecord::Base
   has_many :arvore_utilidades
   has_many :utilidades, :through => :arvore_utilidades
 
+  has_many :arvore_parte_caracteristicas
+  has_many :partes, :through => :arvore_parte_caracteristicas
+  has_many :caracteristicas, :through => :arvore_parte_caracteristicas
+  
   has_many :bibliografias, :dependent => :destroy
   has_many :livros, :through => :bibliografias
   

@@ -1,0 +1,14 @@
+<h3>Admin - caracteristica_tipos</h3>
+
+<%= link_to 'Nova caracteristica_tipo', new_admin_caracteristica_tipo_path %>
+</br></br>
+<table>
+  <% for caracteristica_tipo in @caracteristica_tipos %>
+	<tr>
+	<td> <%= caracteristica_tipo.id %></td> 
+    <td> <%= caracteristica_tipo.nome    %></td> 
+    <td><%= link_to 'Editar', edit_admin_caracteristica_tipo_path(caracteristica_tipo) %></td>
+    <td><%= link_to 'X', [:admin,caracteristica_tipo], confirm: 'Confirma a exclusão?', method: :delete %></td>
+	</tr>
+  <% end %>
+</table>

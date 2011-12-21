@@ -38,7 +38,6 @@
 	<td width="50%" valign="top">
 		<h3>Características</h3>
 		<b>Folha ciclo: </b>  <%= @arvore.folha_ciclo.ciclo %>  </br>
-		<b>Características: </b>  xxxxx xxxxx  </br>
 		<b>Crescimento: </b>  <%= @arvore.crescimento.nome %>  </br>
 		<b>Floração: </b>  
 			<% @arvore.floracoes.each do |floracao| %>
@@ -51,6 +50,23 @@
 			<% end %>
 		</br>
 		<b>Extinção: </b>  <%= @arvore.extincao.grau %>  </br>
+
+		<b>Características: </b> </br>
+		<% @arvore.caracteristicas.each do |caracteristica| %>
+			 <%= caracteristica.caracteristica_tipo.nome %> - <%= caracteristica.nome %> <br>
+		<% end %>
+
+		<b>Características (partes): </b> </br>
+		<% @arvore.partes.each do |parte| %>
+			 <%= parte.nome %> <br>
+		
+			<% parte.caracteristicas.each do |caracteristica| %>	
+				<%= caracteristica.caracteristica_tipo.nome %> - <%= caracteristica.nome %> <br>
+			<% end %>
+			
+		<% end %>
+
+
 	</td></tr>
 </table>
 
@@ -62,7 +78,7 @@
 			<tr><td>
 				<b>Utilidades: </b>  </br> 
 				<% @arvore.utilidades.order("nome").each do |utilidade| %>
-					<%= utilidade.nome %> <br>
+					<%= utilidade.utilidade_tipo.nome %>  - <%= utilidade.nome %> <br>
 				<% end %>
 
 			</td></tr>

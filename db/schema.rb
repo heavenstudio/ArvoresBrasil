@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111219010637) do
+ActiveRecord::Schema.define(:version => 20111221002848) do
 
   create_table "arvore_estados", :id => false, :force => true do |t|
     t.integer  "arvore_id",  :null => false
@@ -35,6 +35,12 @@ ActiveRecord::Schema.define(:version => 20111219010637) do
     t.integer  "ordem",           :limit => 1
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "arvore_parte_caracteristicas", :force => true do |t|
+    t.integer "arvore_id",         :null => false
+    t.integer "parte_id",          :null => false
+    t.integer "caractaristica_id", :null => false
   end
 
   create_table "arvore_utilidades", :force => true do |t|
@@ -69,6 +75,32 @@ ActiveRecord::Schema.define(:version => 20111219010637) do
     t.integer "livro_id",               :null => false
     t.integer "pagina",    :limit => 2
   end
+
+  create_table "caractaristica_tipos", :force => true do |t|
+    t.string "nome"
+  end
+
+  add_index "caractaristica_tipos", ["nome"], :name => "index_caractaristica_tipos_on_nome", :unique => true
+
+  create_table "caractaristicas", :force => true do |t|
+    t.integer "caractaristica_tipo_id", :null => false
+    t.string  "nome"
+  end
+
+  add_index "caractaristicas", ["nome"], :name => "index_caractaristicas_on_nome", :unique => true
+
+  create_table "caracteristica_tipos", :force => true do |t|
+    t.string "nome"
+  end
+
+  add_index "caracteristica_tipos", ["nome"], :name => "index_caracteristica_tipos_on_nome", :unique => true
+
+  create_table "caracteristicas", :force => true do |t|
+    t.integer "caracteristica_tipo_id", :null => false
+    t.string  "nome"
+  end
+
+  add_index "caracteristicas", ["nome"], :name => "index_caracteristicas_on_nome", :unique => true
 
   create_table "crescimentos", :force => true do |t|
     t.string "nome"
