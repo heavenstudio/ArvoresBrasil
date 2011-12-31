@@ -18,8 +18,8 @@ class Arvore < ActiveRecord::Base
   #has_many :partes, :through => :arvore_parte_produtos, :group => :parte_id  #   ESTRAGA O DE CIMA !!!!! ???
   #has_many :produtos, :through => :arvore_parte_produtos
   
-  has_many :bibliografias, :dependent => :destroy
-  has_many :livros, :through => :bibliografias
+  has_many :arvore_livros, :dependent => :destroy
+  has_many :livros, :through => :arvore_livros
   
   has_many :arvore_estados
   has_many :estados, :through => :arvore_estados

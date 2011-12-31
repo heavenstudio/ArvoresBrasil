@@ -11,7 +11,7 @@
 		</br>
 		<b>Nomes Populares: </b><br>
 		<% @arvore.nomes_populares.order("ordem").each do |nome_popular| %>
-			<%= nome_popular.nome %> <br>
+			<%=h nome_popular.nome %> <br>
 		<% end %>
 
 	</td>
@@ -31,13 +31,17 @@
 		<b>Altura: </b>  de <%= @arvore.altura_minima %> à <%= @arvore.altura_maxima %> metros</br>
 		<b>DAP: </b>  de <%= @arvore.dap_minimo %> à <%= @arvore.dap_maximo %> centímetros</br>
 		<b>Copa: </b>  de <%= @arvore.copa_diametro_minimo %> à <%= @arvore.copa_diametro_maximo %> centímetros</br>
-		<b>Raiz: </b>  <%= @arvore.raiz.nome %> </br>
+		<b>Raiz: </b>  
+			<% if @arvore.raiz %>
+				<%= @arvore.raiz.nome %> 
+			<% end %>
+		</br>
 
 	</td>
 	
 	<td width="50%" valign="top">
 		<h3>Características</h3>
-		<b>Folha ciclo: </b>  <%= @arvore.folha_ciclo.ciclo %>  </br>
+		<b>Folha ciclo: </b>  <%= @arvore.folha_ciclo.nome %>  </br>
 		<b>Crescimento: </b>  <%= @arvore.crescimento.nome %>  </br>
 		<b>Floração: </b>  
 			<% @arvore.floracoes.each do |floracao| %>
@@ -49,7 +53,7 @@
 				<%= frutificacao.mes %>,
 			<% end %>
 		</br>
-		<b>Extinção: </b>  <%= @arvore.extincao.grau %>  </br>
+		<b>Extinção: </b>  <% if @arvore.extincao %> <%= @arvore.extincao.nome %> <% end %> </br>
 
 		<b>Características: </b> </br>
 
@@ -58,7 +62,6 @@
 			<% parte.caracteristicas.each do |caracteristica| %>	
 				:: <%= caracteristica.caracteristica_tipo.nome %> - <%= caracteristica.nome %> <br>
 			<% end %>
-			
 		<% end %>
 
 
@@ -98,10 +101,10 @@
 				<b>Por Kg: </b>  <%= @arvore.sementes_kg %>
 			</td></tr>
 			<tr><td>
-				<b>Emergência: </b>  <%= @arvore.germinacao_tempo.tempo %>
+				<b>Emergência: </b>  <%= @arvore.germinacao_tempo.nome %>
 			</td></tr>
 			<tr><td>
-				<b>Germinação: </b>  <%= @arvore.germinacao_taxa.taxa %>
+				<b>Germinação: </b>  <%= @arvore.germinacao_taxa.nome %>
 			</td></tr>
 		</table>
 	</td>

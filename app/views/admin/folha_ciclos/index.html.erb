@@ -11,7 +11,7 @@
 
 <% @folha_ciclos.each do |folha_ciclo| %>
   <tr>
-    <td><%= folha_ciclo.ciclo %></td>
+    <td><%= folha_ciclo.nome %></td>
     <td><%= folha_ciclo.descricao %></td>
     <td><%= link_to 'Edit', edit_admin_folha_ciclo_path(folha_ciclo) %></td>
     <td><%= link_to 'Destroy', [:admin,folha_ciclo], confirm: 'Are you sure?', method: :delete %></td>

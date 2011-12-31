@@ -45,8 +45,9 @@ ActiveSupport::Inflector.inflections do |inflect|
   inflect.irregular 'genero', 'generos'
   inflect.irregular 'extincao', 'extincoes'
   inflect.irregular 'livro', 'livros'
-  inflect.irregular 'bibliografia', 'bibliografias'
-  
+  inflect.irregular 'arvore_livro', 'arvore_livros'
+    inflect.irregular 'ArvoreLivro', 'ArvoreLivros'
+    
   #Textos e HTML
   inflect.irregular 'erro', 'erros'
   inflect.irregular 'impede', 'impedem'

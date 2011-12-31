@@ -6,7 +6,7 @@
   <% for extincao in @extincoes %>
 	<tr>
     <td> <%= extincao.id    %>
-    <td> <%= extincao.grau    %>
+    <td> <%= extincao.nome    %>
     <td><%= link_to 'Editar', edit_admin_extincao_path(extincao) %></td>
     <td><%= link_to 'Excluir', [:admin,extincao], confirm: 'Excluir?', method: :delete %></td>
 	</tr>

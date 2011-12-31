@@ -4,6 +4,6 @@ class CreateProdutos < ActiveRecord::Migration
       t.integer :produto_tipo_id, :null => false
       t.string  :nome
     end
-    add_index :produtos, :nome, :unique
+    #add_index :produtos, :nome, :unique  #O que precisa ser único é :produto_tipo_id + :nome
   end
 end

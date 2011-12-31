@@ -66,8 +66,8 @@
 	<td width="50%" valign="top">
 		<h3>Características</h3>
 		<b>Folha ciclo: </b> 
-    	<%= f.collection_select(:folha_ciclo_id, FolhaCiclo.order('ciclo'),
-         :id, :ciclo, {:prompt => true}, :class=>"form_campos") %>
+    	<%= f.collection_select(:folha_ciclo_id, FolhaCiclo.order('nome'),
+         :id, :nome, {:prompt => true}, :class=>"form_campos") %>
 		</br>
 		<b>Características: </b>  
 		 
@@ -87,8 +87,8 @@
 			<% end %>
 		</br>
 		<b>Extinção: </b>  
-    	<%= f.collection_select(:extincao_id, Extincao.order('grau'),
-         :id, :grau, {:prompt => true}, :class=>"form_campos") %>
+    	<%= f.collection_select(:extincao_id, Extincao.order('nome'),
+         :id, :nome, {:prompt => true}, :class=>"form_campos") %>
 		</br>
 	</td></tr>
 </table>
@@ -131,13 +131,13 @@
 			</td></tr>
 			<tr><td>
 				<b>Emergência: </b>  
-		    	<%= f.collection_select(:germinacao_tempo_id, GerminacaoTempo.order('tempo'),
-		         :id, :tempo, {:prompt => true}, :class=>"form_campos") %>
+		    	<%= f.collection_select(:germinacao_tempo_id, GerminacaoTempo.order('nome'),
+		         :id, :nome, {:prompt => true}, :class=>"form_campos") %>
 			</td></tr>
 			<tr><td>
 				<b>Germinação: </b>  
-		    	<%= f.collection_select(:germinacao_taxa_id, GerminacaoTaxa.order('taxa'),
-		         :id, :taxa, {:prompt => true}, :class=>"form_campos") %>
+		    	<%= f.collection_select(:germinacao_taxa_id, GerminacaoTaxa.order('nome'),
+		         :id, :nome, {:prompt => true}, :class=>"form_campos") %>
 			</td></tr>
 		</table>
 	</td>

@@ -5,7 +5,7 @@
 <table>
   <% for germinacao_tempo in @germinacao_tempos %>
 	<tr>
-    <td> <%= germinacao_tempo.tempo    %></td> 
+    <td> <%= germinacao_tempo.nome    %></td> 
     <td><%= link_to 'Ver', [:admin, germinacao_tempo] %></td>
     <td><%= link_to 'Editar', edit_admin_germinacao_tempo_path(germinacao_tempo) %></td>
     <td><%= link_to 'Excluir', [:admin,germinacao_tempo], confirm: 'Excluir?', method: :delete %></td>

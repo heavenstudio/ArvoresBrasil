@@ -20,6 +20,12 @@ ActiveRecord::Schema.define(:version => 20111221201731) do
     t.datetime "updated_at"
   end
 
+  create_table "arvore_livros", :id => false, :force => true do |t|
+    t.integer "arvore_id",              :null => false
+    t.integer "livro_id",               :null => false
+    t.integer "pagina",    :limit => 2
+  end
+
   create_table "arvore_nomes_cientificos", :id => false, :force => true do |t|
     t.integer  "arvore_id",               :null => false
     t.integer  "genero_id",               :null => false
@@ -32,12 +38,13 @@ ActiveRecord::Schema.define(:version => 20111221201731) do
   create_table "arvore_nomes_populares", :id => false, :force => true do |t|
     t.integer  "arvore_id",                    :null => false
     t.integer  "nome_popular_id",              :null => false
+    t.string   "nome"
     t.integer  "ordem",           :limit => 1
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "arvore_parte_caracteristicas", :force => true do |t|
+  create_table "arvore_parte_caracteristicas", :id => false, :force => true do |t|
     t.integer "arvore_id",         :null => false
     t.integer "parte_id",          :null => false
     t.integer "caracteristica_id", :null => false
@@ -68,32 +75,13 @@ ActiveRecord::Schema.define(:version => 20111221201731) do
     t.datetime "updated_at"
     t.integer  "familia_id",                        :null => false
     t.integer  "pais_id"
-    t.integer  "raiz_id",                           :null => false
-    t.integer  "crescimento_id",                    :null => false
-    t.integer  "germinacao_tempo_id",               :null => false
-    t.integer  "germinacao_taxa_id",                :null => false
+    t.integer  "raiz_id"
+    t.integer  "crescimento_id"
+    t.integer  "germinacao_tempo_id"
+    t.integer  "germinacao_taxa_id"
     t.integer  "extincao_id"
-    t.integer  "folha_ciclo_id",                    :null => false
+    t.integer  "folha_ciclo_id"
   end
-
-  create_table "bibliografias", :id => false, :force => true do |t|
-    t.integer "arvore_id",              :null => false
-    t.integer "livro_id",               :null => false
-    t.integer "pagina",    :limit => 2
-  end
-
-  create_table "caractaristica_tipos", :force => true do |t|
-    t.string "nome"
-  end
-
-  add_index "caractaristica_tipos", ["nome"], :name => "index_caractaristica_tipos_on_nome", :unique => true
-
-  create_table "caractaristicas", :force => true do |t|
-    t.integer "caractaristica_tipo_id", :null => false
-    t.string  "nome"
-  end
-
-  add_index "caractaristicas", ["nome"], :name => "index_caractaristicas_on_nome", :unique => true
 
   create_table "caracteristica_tipos", :force => true do |t|
     t.string "nome"
@@ -122,8 +110,10 @@ ActiveRecord::Schema.define(:version => 20111221201731) do
   end
 
   create_table "extincoes", :force => true do |t|
-    t.string "grau", :null => false
+    t.string "nome", :null => false
   end
+
+  add_index "extincoes", ["nome"], :name => "index_extincoes_on_nome", :unique => true
 
   create_table "familias", :force => true do |t|
     t.string "nome", :null => false
@@ -137,11 +127,11 @@ ActiveRecord::Schema.define(:version => 20111221201731) do
   end
 
   create_table "folha_ciclos", :force => true do |t|
-    t.string "ciclo"
+    t.string "nome"
     t.text   "descricao"
   end
 
-  add_index "folha_ciclos", ["ciclo"], :name => "index_folha_ciclos_on_ciclo", :unique => true
+  add_index "folha_ciclos", ["nome"], :name => "index_folha_ciclos_on_nome", :unique => true
 
   create_table "frutificacoes", :force => true do |t|
     t.integer "arvore_id"
@@ -153,17 +143,17 @@ ActiveRecord::Schema.define(:version => 20111221201731) do
   end
 
   create_table "germinacao_taxas", :force => true do |t|
-    t.string "taxa"
+    t.string "nome"
     t.string "descricao"
   end
 
-  add_index "germinacao_taxas", ["taxa"], :name => "index_germinacao_taxas_on_taxa", :unique => true
+  add_index "germinacao_taxas", ["nome"], :name => "index_germinacao_taxas_on_nome", :unique => true
 
   create_table "germinacao_tempos", :force => true do |t|
-    t.string "tempo"
+    t.string "nome"
   end
 
-  add_index "germinacao_tempos", ["tempo"], :name => "index_germinacao_tempos_on_tempo", :unique => true
+  add_index "germinacao_tempos", ["nome"], :name => "index_germinacao_tempos_on_nome", :unique => true
 
   create_table "livros", :force => true do |t|
     t.string "nome"
@@ -199,8 +189,6 @@ ActiveRecord::Schema.define(:version => 20111221201731) do
     t.integer "produto_tipo_id", :null => false
     t.string  "nome"
   end
-
-  add_index "produtos", ["nome"], :name => "index_produtos_on_nome", :unique => true
 
   create_table "raizes", :force => true do |t|
     t.string "nome"
