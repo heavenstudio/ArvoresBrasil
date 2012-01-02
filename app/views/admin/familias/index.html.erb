@@ -1,7 +1,11 @@
 <h3>Admin - Famílias</h3>
 
 <%= link_to 'Nova Família', new_admin_familia_path %>
-</br></br>
+
+<p>
+	<%= will_paginate @familias %>
+</p>
+
 <table>
   <% for familia in @familias %>
 	<tr>
@@ -12,4 +16,7 @@
 	</tr>
   <% end %>
 </table>
-<%= will_paginate @familias %>
+
+<p>
+	<%= will_paginate @familias %>
+</p>

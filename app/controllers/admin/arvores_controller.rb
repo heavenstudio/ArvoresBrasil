@@ -1,8 +1,8 @@
 module Admin
 class ArvoresController < BaseController
   def index
-    #@arvores = Arvore.order('nome').paginate :page=> params['page'], :per_page=>30
-    @arvores = Arvore.all
+    @arvores = Arvore.order('id').paginate :page=> params['page'], :per_page=>24
+    #@arvores = Arvore.all
     respond_to do |format|
       format.html # index.html.erb
     end

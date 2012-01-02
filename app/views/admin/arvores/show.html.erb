@@ -1,3 +1,4 @@
+<h2> Ficha da Árvore </h2> 
 <table width="100%">
 	<tr><td width="50%" valign="top">
 		<h3>Nome</h3>
@@ -18,7 +19,7 @@
 	
 	<td width="50%" valign="top">
 		<h3>Ocorrência</h3>
-		<b>País: </b>  <%= @arvore.pais.nome %> </br>
+		<b>País: </b>  <% if @arvore.pais %> <%= @arvore.pais.nome %> <% end %> </br>
 		<b>Estados: </b>  XX, XX, XX, XX </br>
 		<b>Florestal: </b>  xxxxx xxxxx </br>
 		<b>Sucessão: </b>  xxxxx xxxxx </br>
@@ -31,18 +32,15 @@
 		<b>Altura: </b>  de <%= @arvore.altura_minima %> à <%= @arvore.altura_maxima %> metros</br>
 		<b>DAP: </b>  de <%= @arvore.dap_minimo %> à <%= @arvore.dap_maximo %> centímetros</br>
 		<b>Copa: </b>  de <%= @arvore.copa_diametro_minimo %> à <%= @arvore.copa_diametro_maximo %> centímetros</br>
-		<b>Raiz: </b>  
-			<% if @arvore.raiz %>
-				<%= @arvore.raiz.nome %> 
-			<% end %>
+		<b>Raiz: </b>  <% if @arvore.raiz %>  <%= @arvore.raiz.nome %> 	<% end %>
 		</br>
 
 	</td>
 	
 	<td width="50%" valign="top">
 		<h3>Características</h3>
-		<b>Folha ciclo: </b>  <%= @arvore.folha_ciclo.nome %>  </br>
-		<b>Crescimento: </b>  <%= @arvore.crescimento.nome %>  </br>
+		<b>Folha ciclo: </b> <% if @arvore.folha_ciclo %> <%= @arvore.folha_ciclo.nome %>	<% end %>  </br>
+		<b>Crescimento: </b> <% if @arvore.crescimento %> <%= @arvore.crescimento.nome %>	<% end %>  </br>
 		<b>Floração: </b>  
 			<% @arvore.floracoes.each do |floracao| %>
 				<%= floracao.mes %>,
@@ -101,10 +99,10 @@
 				<b>Por Kg: </b>  <%= @arvore.sementes_kg %>
 			</td></tr>
 			<tr><td>
-				<b>Emergência: </b>  <%= @arvore.germinacao_tempo.nome %>
+				<b>Emergência: </b>  <% if @arvore.germinacao_tempo %> <%= @arvore.germinacao_tempo.nome %> <% end %>
 			</td></tr>
 			<tr><td>
-				<b>Germinação: </b>  <%= @arvore.germinacao_taxa.nome %>
+				<b>Germinação: </b>  <% if @arvore.germinacao_taxa %> <%= @arvore.germinacao_taxa.nome %> <% end %>
 			</td></tr>
 		</table>
 	</td>
@@ -131,10 +129,7 @@
 
 <table  width="100%">
 	<tr><td valign="top"><h3>Comentários de usuários</h3>
-		dsf sdfsdf s </br>
-		sd gffd </br>
-		gdfsgd </br>
-		gdf asd fdsfdsgdfgdfgadsf gdsfgfdg fdg dfgd f
+		Aqui precisa fazer
 	</td></tr>
 </table>
 
