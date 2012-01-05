@@ -1,0 +1,137 @@
+<h2> Ficha da Árvore </h2> 
+<table width="100%">
+	<tr><td width="50%" valign="top">
+		<h3>Nome</h3>
+		<b>Família: </b>  <%= @arvore.familia.nome %> </br>
+		<b>Científico: </b>  
+		
+		<% @arvore.generos.each do |genero| %>
+			<%= genero.nome %> <br>
+		<% end %>
+				
+		</br>
+		<b>Nomes Populares: </b><br>
+		<% @arvore.nomes_populares.order("ordem").each do |nome_popular| %>
+			<%=h nome_popular.nome %> <br>
+		<% end %>
+
+	</td>
+	
+	<td width="50%" valign="top">
+		<h3>Ocorrência</h3>
+		<b>País: </b>  <% if @arvore.pais %> <%= @arvore.pais.nome %> <% end %> </br>
+		<b>Estados: </b>  XX, XX, XX, XX </br>
+		<b>Florestal: </b>  xxxxx xxxxx </br>
+		<b>Sucessão: </b>  xxxxx xxxxx </br>
+	</td></tr>
+</table>
+
+<table width="100%">
+	<tr><td width="50%" valign="top">
+		<h3>Medidas</h3>
+		<b>Altura: </b>  de <%= @arvore.altura_minima %> à <%= @arvore.altura_maxima %> metros</br>
+		<b>DAP: </b>  de <%= @arvore.dap_minimo %> à <%= @arvore.dap_maximo %> centímetros</br>
+		<b>Copa: </b>  de <%= @arvore.copa_diametro_minimo %> à <%= @arvore.copa_diametro_maximo %> centímetros</br>
+		<b>Raiz: </b>  <% if @arvore.raiz %>  <%= @arvore.raiz.nome %> 	<% end %>
+		</br>
+
+	</td>
+	
+	<td width="50%" valign="top">
+		<h3>Características</h3>
+		<b>Folha ciclo: </b> <% if @arvore.folha_ciclo %> <%= @arvore.folha_ciclo.nome %>	<% end %>  </br>
+		<b>Crescimento: </b> <% if @arvore.crescimento %> <%= @arvore.crescimento.nome %>	<% end %>  </br>
+		<b>Floração: </b>  
+			<% @arvore.floracoes.each do |floracao| %>
+				<%= floracao.mes %>,
+			<% end %>
+		</br>
+		<b>Frutificação: </b>
+			<% @arvore.frutificacoes.each do |frutificacao| %>
+				<%= frutificacao.mes %>,
+			<% end %>
+		</br>
+		<b>Extinção: </b>  <% if @arvore.extincao %> <%= @arvore.extincao.nome %> <% end %> </br>
+
+		<b>Características: </b> </br>
+
+		<% @arvore.partes.each do |parte| %>
+			<%= parte.nome %> <br>
+			<% parte.caracteristicas.each do |caracteristica| %>	
+				:: <%= caracteristica.caracteristica_tipo.nome %> - <%= caracteristica.nome %> <br>
+			<% end %>
+		<% end %>
+
+
+	</td></tr>
+</table>
+
+
+
+<table width="100%">
+	<tr><td width="50%" valign="top"><h3>Utilidades</h3>
+		<table>
+			<tr><td>
+				<b>Utilidades: </b>  </br> 
+				<% @arvore.utilidades.order("nome").each do |utilidade| %>
+					<%= utilidade.utilidade_tipo.nome %>  - <%= utilidade.nome %> <br>
+				<% end %>
+
+			</td></tr>
+		</table>
+	</td>
+	
+	<td width="50%" valign="top"><h3>Extração</h3>
+		<table>
+			<tr><td>
+				<b>Extrações: </b>  xxxxx </br> xxxx xxxxx </br> xxxxx </br> xxxx xxxxx
+			</td></tr>
+		</table>
+	</td></tr>
+</table>
+
+
+
+<table width="100%">
+	<tr><td width="50%" valign="top"><h3>Semente</h3>
+		<table>
+			<tr><td>
+				<b>Por Kg: </b>  <%= @arvore.sementes_kg %>
+			</td></tr>
+			<tr><td>
+				<b>Emergência: </b>  <% if @arvore.germinacao_tempo %> <%= @arvore.germinacao_tempo.nome %> <% end %>
+			</td></tr>
+			<tr><td>
+				<b>Germinação: </b>  <% if @arvore.germinacao_taxa %> <%= @arvore.germinacao_taxa.nome %> <% end %>
+			</td></tr>
+		</table>
+	</td>
+	
+	<td width="50%" valign="top"><h3>Bibliografia</h3>
+		<table>
+			<tr><td>
+				<b>Livros: </b> 
+			    <% @arvore.livros.each do |livro| %>
+			     <%= livro.nome %>
+			    <% end %>
+			</td></tr>
+		</table>
+	</td></tr>
+</table>
+
+
+<table  width="100%">
+	<tr><td valign="top"><h3>Observação</h3>
+		<%= @arvore.observacao %>
+	</td></tr>
+</table>
+
+
+<table  width="100%">
+	<tr><td valign="top"><h3>Comentários de usuários</h3>
+		Aqui precisa fazer
+	</td></tr>
+</table>
+
+
+<%= link_to 'Voltar', arvores_path %>

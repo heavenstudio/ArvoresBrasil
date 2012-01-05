@@ -10,8 +10,9 @@
 	<tr><td width="50%" valign="top">
 		<h3>Nome</h3>
 		<b>Família: </b> 
-	    <%= f.collection_select(:familia_id, Familia.order('nome'),
-	         :id, :nome, {:prompt => true}, :class=>"form_campos") %>		
+
+
+	    <%= f.collection_select(:familia_id, Familia.order('nome'), :id, :nome, {:prompt => true}, :class=>"form_campos") %>		
 		</br>
 		<b>Científico: </b>  
 		<% Genero.all.each do |genero| %>

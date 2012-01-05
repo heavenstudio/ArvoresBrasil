@@ -1,7 +1,53 @@
-<h3><span>Árvore - Lista de Espécies</span></h3>
+<%= stylesheet_link_tag "arvores" %>
+<h3>Lista de Árvores</h3>
 
-<% for arvore in @arvores %>
-  <div class="arvore">
-    <%= link_to arvore.altura_minima, arvore %>
-  </div>
-<% end %>
+<p>
+	<%= will_paginate @arvores %>
+</p>
+
+
+<table width="80%" border="0" cellspacing="0"  class="texto_peq" >
+	<tr>
+    <td class="list_top"> Cod </td> 
+		<td class="list_top"> Nome Popular </td>
+    <td class="list_top"> Altura </td>
+    <td class="list_top"> DAP </td>
+    <td class="list_top"> Diâmetro <br> Copa </td>
+    <td class="list_top"> Sementes <br> por kg </td>
+    <td class="list_top"> Sementes <br> viabilidade </td>
+    <td class="list_top"> Obs </td>
+    <td class="list_top"> Família </td>
+		<td class="list_top">Edit</td>
+		<td class="list_top">Excluir</td>
+	</tr>
+
+	<% i = 0 %>  	
+	<% for arvore in @arvores %>
+	<% if i == 0 %>
+	    <% i = 1 %>
+		<tr bgcolor='#E6E6E6' class='list'>
+	<% else %>
+	    <% i = 0 %>
+		<tr bgcolor='#FFFFFF' class='list'>
+	<% end %>
+    <td class="list"> <%= link_to arvore.id , arvore %></td> 
+
+
+    <td> <%= arvore.nomes_populares.order("ordem").first.nome %>	</td>
+
+	
+		<td> <%= arvore.altura_minima  %> - <%= arvore.altura_maxima %></td>
+		<td> <%= arvore.dap_minimo %> - <%= arvore.dap_maximo %></td>
+		<td> <%= arvore.copa_diametro_minimo %> - <%= arvore.copa_diametro_maximo %></td>
+    <td> <%= arvore.sementes_kg %></td> 
+    <td> <%= arvore.sementes_viabilidade %></td>
+    <td> <%= truncate(arvore.observacao, :length => 7) %></td>
+    <td> <%= arvore.familia.nome %></td>
+
+	</tr>
+  	<% end %>
+</table>
+
+<p>
+	<%= will_paginate @arvores %>
+</p>

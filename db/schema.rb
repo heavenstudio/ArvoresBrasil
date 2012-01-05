@@ -11,13 +11,23 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111221201731) do
+ActiveRecord::Schema.define(:version => 20120104223313) do
+
+  create_table "arvore_condicoes", :force => true do |t|
+    t.integer "arvore_id",      :null => false
+    t.integer "condicao_id",    :null => false
+    t.integer "preferencia_id", :null => false
+  end
 
   create_table "arvore_estados", :id => false, :force => true do |t|
-    t.integer  "arvore_id",  :null => false
-    t.integer  "estado_id",  :null => false
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.integer "arvore_id", :null => false
+    t.integer "estado_id", :null => false
+  end
+
+  create_table "arvore_florestas", :force => true do |t|
+    t.integer "arvore_id",      :null => false
+    t.integer "floresta_id",    :null => false
+    t.integer "preferencia_id", :null => false
   end
 
   create_table "arvore_livros", :id => false, :force => true do |t|
@@ -26,7 +36,7 @@ ActiveRecord::Schema.define(:version => 20111221201731) do
     t.integer "pagina",    :limit => 2
   end
 
-  create_table "arvore_nomes_cientificos", :id => false, :force => true do |t|
+  create_table "arvore_nomes_cientificos", :force => true do |t|
     t.integer  "arvore_id",               :null => false
     t.integer  "genero_id",               :null => false
     t.string   "especie",                 :null => false
@@ -38,7 +48,6 @@ ActiveRecord::Schema.define(:version => 20111221201731) do
   create_table "arvore_nomes_populares", :id => false, :force => true do |t|
     t.integer  "arvore_id",                    :null => false
     t.integer  "nome_popular_id",              :null => false
-    t.string   "nome"
     t.integer  "ordem",           :limit => 1
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -54,6 +63,12 @@ ActiveRecord::Schema.define(:version => 20111221201731) do
     t.integer "arvore_id",  :null => false
     t.integer "parte_id",   :null => false
     t.integer "produto_id", :null => false
+  end
+
+  create_table "arvore_sucessoes", :force => true do |t|
+    t.integer "arvore_id",      :null => false
+    t.integer "sucessao_id",    :null => false
+    t.integer "preferencia_id", :null => false
   end
 
   create_table "arvore_utilidades", :force => true do |t|
@@ -96,6 +111,20 @@ ActiveRecord::Schema.define(:version => 20111221201731) do
 
   add_index "caracteristicas", ["nome"], :name => "index_caracteristicas_on_nome", :unique => true
 
+  create_table "condicao_tipos", :force => true do |t|
+    t.string "nome", :null => false
+  end
+
+  add_index "condicao_tipos", ["nome"], :name => "index_condicao_tipos_on_nome", :unique => true
+
+  create_table "condicoes", :force => true do |t|
+    t.integer "condicao_tipo_id", :null => false
+    t.string  "nome",             :null => false
+    t.string  "descricao",        :null => false
+  end
+
+  add_index "condicoes", ["nome"], :name => "index_condicoes_on_nome", :unique => true
+
   create_table "crescimentos", :force => true do |t|
     t.string "nome"
     t.text   "descricao"
@@ -125,6 +154,12 @@ ActiveRecord::Schema.define(:version => 20111221201731) do
     t.integer "arvore_id"
     t.integer "mes",       :limit => 1
   end
+
+  create_table "florestas", :force => true do |t|
+    t.string "nome", :null => false
+  end
+
+  add_index "florestas", ["nome"], :name => "index_florestas_on_nome", :unique => true
 
   create_table "folha_ciclos", :force => true do |t|
     t.string "nome"
@@ -156,8 +191,8 @@ ActiveRecord::Schema.define(:version => 20111221201731) do
   add_index "germinacao_tempos", ["nome"], :name => "index_germinacao_tempos_on_nome", :unique => true
 
   create_table "livros", :force => true do |t|
-    t.string "nome"
-    t.string "autor"
+    t.string "nome",    :null => false
+    t.string "autor",   :null => false
     t.string "editora"
   end
 
@@ -179,6 +214,10 @@ ActiveRecord::Schema.define(:version => 20111221201731) do
 
   add_index "partes", ["nome"], :name => "index_partes_on_nome", :unique => true
 
+  create_table "preferencias", :force => true do |t|
+    t.string "nome", :null => false
+  end
+
   create_table "produto_tipos", :force => true do |t|
     t.string "nome"
   end
@@ -197,6 +236,10 @@ ActiveRecord::Schema.define(:version => 20111221201731) do
 
   add_index "raizes", ["nome"], :name => "index_raizes_on_nome", :unique => true
 
+  create_table "sucessoes", :force => true do |t|
+    t.string "nome", :null => false
+  end
+
   create_table "utilidade_tipos", :force => true do |t|
     t.string "nome"
   end
@@ -205,7 +248,7 @@ ActiveRecord::Schema.define(:version => 20111221201731) do
 
   create_table "utilidades", :force => true do |t|
     t.integer "utilidade_tipo_id", :null => false
-    t.string  "nome"
+    t.string  "nome",              :null => false
   end
 
 end

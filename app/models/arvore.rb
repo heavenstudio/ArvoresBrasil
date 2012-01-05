@@ -17,7 +17,16 @@ class Arvore < ActiveRecord::Base
   #has_many :arvore_parte_produtos
   #has_many :partes, :through => :arvore_parte_produtos, :group => :parte_id  #   ESTRAGA O DE CIMA !!!!! ???
   #has_many :produtos, :through => :arvore_parte_produtos
+
+  has_many :arvore_condicoes
+  has_many :condicoes, :through => :arvore_condicoes
+  #has_many :preferencias, :through => :arvore_condicoes, :group => :preferencia_id
+
+  has_many :arvore_sucessoes
+  has_many :sucessoes, :through => :arvore_sucessoes
+  #has_many :preferencias, :through => :arvore_sucessoes, :group => :preferencia_id
   
+
   has_many :arvore_livros, :dependent => :destroy
   has_many :livros, :through => :arvore_livros
   

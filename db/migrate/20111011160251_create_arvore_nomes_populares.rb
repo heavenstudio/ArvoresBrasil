@@ -3,7 +3,6 @@ class CreateArvoreNomesPopulares < ActiveRecord::Migration
     create_table :arvore_nomes_populares, :id => false do |t|
       t.integer :arvore_id, :null => false
       t.integer :nome_popular_id, :null => false
-      t.string  :nome
       t.integer :ordem, :limit => 1
       t.timestamps
     end

@@ -1,6 +1,6 @@
 class CreateArvoreNomesCientificos < ActiveRecord::Migration
   def change
-    create_table :arvore_nomes_cientificos, :id => false do |t|
+    create_table :arvore_nomes_cientificos do |t|
       t.integer :arvore_id, :null => false
       t.integer :genero_id, :null => false
       t.string  :especie,   :null => false

@@ -43,3 +43,9 @@ app/views/admin/.DS_Store
 app/views/admin/.DS_Store
 
 db/schema.rb
+
+app/controllers/.DS_Store
+
+app/views/.DS_Store
+
+app/models/arvore_floresta.rb

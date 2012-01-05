@@ -18,6 +18,7 @@ ActiveSupport::Inflector.inflections do |inflect|
   inflect.irregular 'arvore_nome_popular', 'arvore_nomes_populares'
     inflect.irregular 'ArvoreNomePopular', 'ArvoreNomesPopulares'
 
+  inflect.irregular 'genero', 'generos'
   inflect.irregular 'arvore_nome_cientifico', 'arvore_nomes_cientificos'
     inflect.irregular 'ArvoreNomeCientifico', 'ArvoreNomesCientificos'
 
@@ -29,6 +30,7 @@ ActiveSupport::Inflector.inflections do |inflect|
     inflect.irregular 'ArvoreUtilidade', 'ArvoreUtilidades'
 
   inflect.irregular 'parte', 'partes'
+  inflect.irregular 'preferencia', 'preferencias'
 
   inflect.irregular 'caracteristica', 'caracteristicas'
   inflect.irregular 'caracteristica_tipo', 'caracteristica_tipos'
@@ -42,7 +44,22 @@ ActiveSupport::Inflector.inflections do |inflect|
   inflect.irregular 'arvore_parte_produto', 'arvore_parte_produtos'
     inflect.irregular 'ArvoreParteProduto', 'ArvoreParteProdutos'
 
-  inflect.irregular 'genero', 'generos'
+  inflect.irregular 'floresta', 'florestas'
+  inflect.irregular 'arvore_floresta', 'arvore_florestas'
+    inflect.irregular 'ArvoreFloresta', 'ArvoreFlorestas'
+
+  inflect.irregular 'sucessao', 'sucessoes'
+  inflect.irregular 'arvore_sucessao', 'arvore_sucessoes'
+    inflect.irregular 'ArvoreSucessao', 'ArvoreSucessoes'
+
+  inflect.irregular 'condicao_tipo', 'condicao_tipos'
+    inflect.irregular 'CondicaoTipo', 'CondicaoTipos' 
+  inflect.irregular 'condicao', 'condicoes'
+  inflect.irregular 'arvore_condicao', 'arvore_condicoes'
+    inflect.irregular 'ArvoreCondicao', 'ArvoreCondicoes'
+
+
+
   inflect.irregular 'extincao', 'extincoes'
   inflect.irregular 'livro', 'livros'
   inflect.irregular 'arvore_livro', 'arvore_livros'
