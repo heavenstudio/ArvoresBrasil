@@ -23,12 +23,23 @@ ArvoresBrasil::Application.routes.draw do
     resources :generos
     resources :germinacao_taxas
     resources :germinacao_tempos
+    
     resources :utilidade_tipos
     resources :utilidades
     resources :partes
     resources :caracteristica_tipos
     resources :caracteristicas
 
+    resources :condicao_tipos
+    resources :condicoes
+    
+    resources :preferencias
+
+    resources :produto_tipos
+    resources :produtos
+    
+    resources :sucessoes
+    
     resources :extincoes    
     resources :nomes_populares
     resources :folha_ciclos

@@ -1,0 +1,14 @@
+<h3>Admin - condicao_tipos</h3>
+
+<%= link_to 'Nova condicao_tipo', new_admin_condicao_tipo_path %>
+</br></br>
+<table>
+  <% for condicao_tipo in @condicao_tipos %>
+	<tr>
+	<td> <%= condicao_tipo.id %></td> 
+    <td> <%= condicao_tipo.nome    %></td> 
+    <td><%= link_to 'Editar', edit_admin_condicao_tipo_path(condicao_tipo) %></td>
+    <td><%= link_to 'X', [:admin,condicao_tipo], confirm: 'Confirma a exclusão?', method: :delete %></td>
+	</tr>
+  <% end %>
+</table>
