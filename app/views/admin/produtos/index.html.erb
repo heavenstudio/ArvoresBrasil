@@ -1,0 +1,15 @@
+<h3>Admin - Produtos</h3>
+
+<%= link_to 'Novo Produto', new_admin_produto_path %>
+
+<table>
+  <% for produto in @produtos %>
+	<tr>
+	<td> <%= produto.id %></td> 
+	  <td> <%= produto.produto_tipo.nome %></td> 
+    <td> <%= produto.nome    %></td> 
+    <td><%= link_to 'Editar', edit_admin_produto_path(produto) %></td>
+    <td><%= link_to 'X', [:admin,produto], confirm: 'Confirma a exclusão?', method: :delete %></td>
+	</tr>
+  <% end %>
+</table>

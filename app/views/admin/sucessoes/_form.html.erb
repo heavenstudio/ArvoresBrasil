@@ -1,0 +1,13 @@
+<%= form_for([:admin, @sucessao]) do |f| %>
+<%= render 'shared/error_messages', :object => f.object %>
+
+  <div>
+    <%= f.label :nome %>
+    <%= f.text_field :nome, :class => "text" %>
+  </div>
+
+  <div>
+    <%= submit_tag "Criar", :class => "send"  %>
+
+  </div>
+<% end %>

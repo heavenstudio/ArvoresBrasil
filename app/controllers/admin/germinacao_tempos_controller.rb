@@ -1,7 +1,7 @@
 module Admin
 class GerminacaoTemposController < BaseController
   def index
-    @germinacao_tempos = GerminacaoTempo.order('tempo')
+    @germinacao_tempos = GerminacaoTempo.order('nome')
     respond_to do |format|
       format.html # index.html.erb
     end
