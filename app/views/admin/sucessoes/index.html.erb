@@ -1,0 +1,14 @@
+<h3>Admin - Sucessões</h3>
+
+<%= link_to 'Nova Sucessão', new_admin_sucessao_path %>
+
+<table>
+  <% for sucessao in @sucessoes %>
+	<tr>
+	<td> <%= sucessao.id %></td> 
+    <td> <%= sucessao.nome    %></td> 
+    <td><%= link_to 'Editar', edit_admin_sucessao_path(sucessao) %></td>
+    <td><%= link_to 'X', [:admin,sucessao], confirm: 'Confirma a exclusão?', method: :delete %></td>
+	</tr>
+  <% end %>
+</table>
