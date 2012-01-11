@@ -1,7 +1,7 @@
 module Admin
 class EstadosController < BaseController
   def index
-    @estados = Estado.order('sigla')
+    @estados = Estado.order('nome').paginate :page=> params['page'], :per_page=>30
     respond_to do |format|
       format.html # index.html.erb
     end

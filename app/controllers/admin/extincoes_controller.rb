@@ -1,7 +1,7 @@
 module Admin
 class ExtincoesController < BaseController
   def index
-    @extincoes = Extincao.order('nome')
+    @extincoes = Extincao.order('grau')
     respond_to do |format|
       format.html # index.html.erb
     end

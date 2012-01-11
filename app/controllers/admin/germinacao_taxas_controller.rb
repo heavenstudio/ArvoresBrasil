@@ -1,7 +1,7 @@
 module Admin
 class GerminacaoTaxasController < BaseController
   def index
-    @germinacao_taxas = GerminacaoTaxa.order('nome')
+    @germinacao_taxas = GerminacaoTaxa.order('taxa')
     respond_to do |format|
       format.html # index.html.erb
     end

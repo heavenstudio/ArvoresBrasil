@@ -6,12 +6,13 @@
 		<b>Científico: </b>  
 		
 		<% @arvore.generos.each do |genero| %>
-			<%= genero.nome %> </br>
+			<%= genero.nome %> <br>
 		<% end %>
 				
-		<b>Nomes Populares: </b></br>
+		</br>
+		<b>Nomes Populares: </b><br>
 		<% @arvore.nomes_populares.order("ordem").each do |nome_popular| %>
-			<%=h nome_popular.nome %> </br>
+			<%=h nome_popular.nome %> <br>
 		<% end %>
 
 	</td>
@@ -19,11 +20,7 @@
 	<td width="50%" valign="top">
 		<h3>Ocorrência</h3>
 		<b>País: </b>  <% if @arvore.pais %> <%= @arvore.pais.nome %> <% end %> </br>
-		<b>Estados: </b> </br>
-		<% @arvore.estados.each do |estado| %>
-			<%=h estado.sigla %> ,
-		<% end %>
-		</br>
+		<b>Estados: </b>  XX, XX, XX, XX </br>
 		<b>Florestal: </b>  xxxxx xxxxx </br>
 		<b>Sucessão: </b>  xxxxx xxxxx </br>
 	</td></tr>
