@@ -1,13 +1,14 @@
 www.ArvoresBrasil.com.br de PHP para RoR.
 
-Me dedico a esta migração nas horas vagas, e com muita paixão.
-Ao final, quero que este projeto seja um bom exemplo de código RoR.
-Se você pode ajudar, será muito bem vindo!
+Me dedico a esta migracao nas horas vagas, e com muita paixao.
+Ao final, quero que este projeto seja um bom exemplo de codigo RoR.
+Se voce pode ajudar, sera muito bem vindo!
 
 
 Algumas caracteristicas do projeto:
-- gem 'rails', '3.1.0.rc8'
-- gem 'mysql2', '0.3.6'
+Ruby 1.9.3-p0
+- gem 'rails', '3.2.0.rc2'
+- gem 'mysql2', '0.3.10'
 - gem "will_paginate"
 - Template Inheritance (http://railscasts.com/episodes/269-template-inheritance)
 
