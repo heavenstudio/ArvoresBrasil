@@ -1,10 +1,8 @@
 module Admin
 class FamiliasController < BaseController
   def index
-    @familias = Familia.order('nome').paginate :page=> params['page'], :per_page=>14
-    respond_to do |format|
-      format.html # index.html.erb
-    end
+    #@familias = Familia.order('nome').paginate :page=> params['page'], :per_page=>14
+    @familias = Familia.search(params[:search]).paginate :page=> params['page'], :per_page=>14
   end
   
   def new

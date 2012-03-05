@@ -2,10 +2,14 @@
 
 <%= link_to 'Nova Família', new_admin_familia_path %>
 
-<p>
-	<%= will_paginate @familias %>
-</p>
 
+<%= form_tag admin_familias_path, :method => 'get' do %>
+  <p>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Pesquisar", :name => nil %>
+  </p>
+<% end %>
+ 
 <table>
   <% for familia in @familias %>
 	<tr>
