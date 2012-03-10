@@ -1,10 +1,9 @@
 <h3>Admin - Ciclos de Folhas</h3>
 
-<table>
+<table width="80%">
   <tr>
     <th>Ciclo</th>
     <th>Descricao</th>
-    <th></th>
     <th></th>
     <th></th>
   </tr>
@@ -13,8 +12,8 @@
   <tr>
     <td><%= folha_ciclo.nome %></td>
     <td><%= folha_ciclo.descricao %></td>
-    <td><%= link_to 'Edit', edit_admin_folha_ciclo_path(folha_ciclo) %></td>
-    <td><%= link_to 'Destroy', [:admin,folha_ciclo], confirm: 'Are you sure?', method: :delete %></td>
+    <td><%= link_to 'Editar', edit_admin_folha_ciclo_path(folha_ciclo) %></td>
+    <td><%= link_to 'X', [:admin,folha_ciclo], confirm: 'Are you sure?', method: :delete %></td>
   </tr>
 <% end %>
 </table>

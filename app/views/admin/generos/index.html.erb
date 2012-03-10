@@ -2,13 +2,13 @@
 
 <%= link_to 'Nova', new_admin_genero_path %>
 </br></br>
-<table>
+<table width="80%">
   <% for genero in @generos %>
 	<tr>
     <td> <%= genero.nome    %></td> 
     <td><%= link_to 'Ver', [:admin, genero] %></td>
     <td><%= link_to 'Editar', edit_admin_genero_path(genero) %></td>
-    <td><%= link_to 'Excluir', [:admin,genero], confirm: 'Excluir?', method: :delete %></td>
+    <td><%= link_to 'X', [:admin,genero], confirm: 'Excluir?', method: :delete %></td>
 	</tr>
   <% end %>
 </table>

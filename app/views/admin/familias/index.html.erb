@@ -6,16 +6,23 @@
 <%= form_tag admin_familias_path, :method => 'get' do %>
   <p>
     <%= text_field_tag :search, params[:search] %>
-    <%= submit_tag "Pesquisar", :name => nil %>
+		<%= image_submit_tag("btn_search.png") %>
   </p>
 <% end %>
  
-<table>
+<table width="80%">
+	<b>
+	<tr>
+		<td>NOME</td>	<td>DELETE</td>
+	</tr>
+	</b>
+	
   <% for familia in @familias %>
 	<tr>
-	<td> <%= familia.id %></td> 
-    <td> <%= familia.nome    %></td> 
-    <td><%= link_to 'Editar', edit_admin_familia_path(familia) %></td>
+    <td> <%= link_to familia.nome , edit_admin_familia_path(familia)   %></td> 
+
+<!--		<td><%= link_to image_tag("btn_edit.png", :size => "5x5", :alt => "Edit"), edit_admin_familia_path(familia) %></td>
+-->
     <td><%= link_to 'X', [:admin,familia], confirm: 'Confirma a exclusão?', method: :delete %></td>
 	</tr>
   <% end %>

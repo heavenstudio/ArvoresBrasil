@@ -2,13 +2,12 @@
 
 <%= link_to 'Novo', new_admin_crescimento_path %>
 </br></br>
-<table>
+<table width="80%">
   <% for crescimento in @crescimentos %>
 	<tr>
-    <td> <%= crescimento.id    %></td>
     <td> <%= crescimento.nome    %></td> 
     <td><%= link_to 'Editar', edit_admin_crescimento_path(crescimento) %></td>
-    <td><%= link_to 'Excluir', [:admin,crescimento], confirm: 'Excluir?', method: :delete %></td>
+    <td><%= link_to 'X', [:admin,crescimento], confirm: 'Excluir?', method: :delete %></td>
 	</tr>
   <% end %>
 </table>

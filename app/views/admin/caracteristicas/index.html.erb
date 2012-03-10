@@ -2,10 +2,9 @@
 
 <%= link_to 'Nova caracteristica', new_admin_caracteristica_path %>
 </br></br>
-<table>
+<table width="80%">
   <% for caracteristica in @caracteristicas %>
 	<tr>
-		<td> <%= caracteristica.id %></td> 
     <td> <%= caracteristica.caracteristica_tipo.nome %></td> 
 		<td> <%= caracteristica.nome    %></td> 
     <td><%= link_to 'Editar', edit_admin_caracteristica_path(caracteristica) %></td>

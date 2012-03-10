@@ -2,10 +2,9 @@
 
 <%= link_to 'Nova Raiz', new_admin_raiz_path %>
 </br></br>
-<table>
+<table width="80%">
   <% for raiz in @raizes %>
 	<tr>
-	<td> <%= raiz.id %></td> 
     <td> <%= raiz.nome    %></td> 
     <td><%= link_to 'Editar', edit_admin_raiz_path(raiz) %></td>
     <td><%= link_to 'X', [:admin,raiz], confirm: 'Confirma a exclusão?', method: :delete %></td>

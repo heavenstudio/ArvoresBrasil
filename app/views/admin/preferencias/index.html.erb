@@ -2,10 +2,9 @@
 
 <%= link_to 'Nova Preferência', new_admin_preferencia_path %>
 
-<table>
+<table width="80%">
   <% for preferencia in @preferencias %>
 	<tr>
-	<td> <%= preferencia.id %></td> 
     <td> <%= preferencia.nome    %></td> 
     <td><%= link_to 'Editar', edit_admin_preferencia_path(preferencia) %></td>
     <td><%= link_to 'X', [:admin,preferencia], confirm: 'Confirma a exclusão?', method: :delete %></td>

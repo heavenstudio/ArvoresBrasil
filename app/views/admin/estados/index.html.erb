@@ -2,10 +2,9 @@
 
 <%= link_to 'Novo', new_admin_estado_path %>
 </br></br>
-<table>
+<table width="80%">
   <% for estado in @estados %>
 	<tr>
-	<td> <%= estado.id %></td> 
     <td> <%= estado.nome    %></td> 
     <td> <%= estado.sigla    %></td> 
     <td> <%= estado.pais.nome    %></td> 
@@ -14,4 +13,3 @@
 	</tr>
   <% end %>
 </table>
-<%= will_paginate @estados %>
