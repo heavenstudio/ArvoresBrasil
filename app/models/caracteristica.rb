@@ -3,6 +3,6 @@ class Caracteristica < ActiveRecord::Base
 
   has_many :arvore_parte_caracteristicas
   has_many :arvores, :through => :arvore_parte_caracteristicas
-  has_many :partes, :through => :arvore_parte_caracteristicas
+  #has_many :partes, :through => :arvore_parte_caracteristicas
 
 end

@@ -58,13 +58,23 @@
 
 		<b>Características: </b> </br>
 
-		<% @arvore.partes.each do |parte| %>
-			<%= parte.nome %> <br>
-			<% parte.caracteristicas.each do |caracteristica| %>	
-				:: <%= caracteristica.caracteristica_tipo.nome %> - <%= caracteristica.nome %> <br>
-			<% end %>
-		<% end %>
+				<% @arvore.partes.each do |parte| %>
+					<%= parte.nome %> <br>
 
+				<% end %>
+		<br>
+
+<b>PARTES:</b><BR>
+	<% @arvore.partes.each do |parte| %>
+		<%= parte.nome %> <br>
+
+	<% end %>
+
+
+<b>CARACTERÍSTICAS:</b><BR>
+		<% @arvore.caracteristicas.each do |caracteristica| %>
+				:: <%= caracteristica.caracteristica_tipo.nome %> - <%= caracteristica.nome %> <br>
+		<% end %>
 
 	</td></tr>
 </table>

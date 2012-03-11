@@ -4,12 +4,12 @@ class Parte < ActiveRecord::Base
 
   has_many :arvore_parte_caracteristicas
   has_many :arvores, :through => :arvore_parte_caracteristicas
-  has_many :caracteristicas, :through => :arvore_parte_caracteristicas
+  #has_many :caracteristicas, :through => :arvore_parte_caracteristicas
 
 
-  has_many :arvore_parte_produtos
-  has_many :arvores, :through => :arvore_parte_produtos
-  has_many :produtos, :through => :arvore_parte_produtos
+  #has_many :arvore_parte_produtos
+  #has_many :arvores, :through => :arvore_parte_produtos
+  #has_many :produtos, :through => :arvore_parte_produtos
   
   
 end
