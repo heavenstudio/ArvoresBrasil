@@ -7,9 +7,6 @@ class FamiliasController < BaseController
   
   def new
     @familia = Familia.new
-    respond_to do |format|
-      format.html # new.html.erb
-    end
   end
 
   def edit

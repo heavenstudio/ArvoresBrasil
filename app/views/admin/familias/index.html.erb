@@ -1,29 +1,40 @@
 <h3>Admin - Famílias</h3>
 
-<%= link_to 'Nova Família', new_admin_familia_path %>
 
-
-<%= form_tag admin_familias_path, :method => 'get' do %>
-  <p>
-    <%= text_field_tag :search, params[:search] %>
-		<%= image_submit_tag("btn_search.png") %>
-  </p>
-<% end %>
  
 <table width="80%">
-	<b>
+
+
+	<tr>
+		<td>
+			<%= form_tag admin_familias_path, :method => 'get' do %>
+			  <p>
+			    <%= text_field_tag :search, params[:search], :size => 45 %>
+					<%= image_submit_tag("btn_search.png") %>
+			  </p>
+			<% end %>
+		</td>
+		<td align="right" >
+			<%= link_to image_tag("btn_new.png", :alt => "New"), new_admin_familia_path %>
+		</td>
+	</tr>
+
+	<tr>
+		<td><br></td>
+	</tr>
+
 	<tr>
 		<td>NOME</td>	<td>DELETE</td>
 	</tr>
-	</b>
+
 	
   <% for familia in @familias %>
 	<tr>
-    <td> <%= link_to familia.nome , edit_admin_familia_path(familia)   %></td> 
+    <td> <%= familia.nome %></td> 
 
-<!--		<td><%= link_to image_tag("btn_edit.png", :size => "5x5", :alt => "Edit"), edit_admin_familia_path(familia) %></td>
--->
-    <td><%= link_to 'X', [:admin,familia], confirm: 'Confirma a exclusão?', method: :delete %></td>
+		<td><%= link_to image_tag("btn_edit.png", :size => "16x16" , :alt => "Edit"), edit_admin_familia_path(familia) %></td>
+		
+    <td><%= link_to image_tag("btn_delete.png", :alt => "Delete"), [:admin,familia], confirm: 'Confirma a exclusão?', method: :delete %></td>
 	</tr>
   <% end %>
 </table>
