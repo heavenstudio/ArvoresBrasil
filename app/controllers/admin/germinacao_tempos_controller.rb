@@ -1,11 +1,5 @@
 module Admin
 class GerminacaoTemposController < BaseController
-  def index
-    @germinacao_tempos = GerminacaoTempo.order('nome')
-    respond_to do |format|
-      format.html # index.html.erb
-    end
-  end
 
   def new
     @germinacao_tempo = GerminacaoTempo.new
@@ -21,7 +15,7 @@ class GerminacaoTemposController < BaseController
   def create
     @germinacao_tempo = GerminacaoTempo.new(params[:germinacao_tempo])
     if @germinacao_tempo.save
-      redirect_to admin_germinacao_tempos_url, notice: 'GerminacaoTempo criada com sucesso.'
+      redirect_to admin_germinacoes_url, notice: 'GerminacaoTempo criada com sucesso.'
     else
       render action: "new"
     end
@@ -30,7 +24,7 @@ class GerminacaoTemposController < BaseController
   def update
     @germinacao_tempo = GerminacaoTempo.find(params[:id])
     if @germinacao_tempo.update_attributes(params[:germinacao_tempo])
-      redirect_to [:admin, @germinacao_tempo], notice: 'Germinacao Tempo alterada com sucesso.'
+      redirect_to [:admin, @germinacoes], notice: 'Germinacao Tempo alterada com sucesso.'
     else
       render action: "edit"
     end
@@ -39,7 +33,7 @@ class GerminacaoTemposController < BaseController
   def destroy
     @germinacao_tempo = GerminacaoTempo.find(params[:id])
     @germinacao_tempo.destroy
-    redirect_to admin_germinacao_tempos_url
+    redirect_to admin_germinacoes_url
   end
   
 end

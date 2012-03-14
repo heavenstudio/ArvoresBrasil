@@ -21,6 +21,7 @@ ArvoresBrasil::Application.routes.draw do
     resources :raizes
     resources :crescimentos
     resources :generos
+    resources :germinacoes
     resources :germinacao_taxas
     resources :germinacao_tempos
     

@@ -5,6 +5,7 @@ ActiveSupport::Inflector.inflections do |inflect|
   inflect.irregular 'raiz', 'raizes'
   inflect.irregular 'folha_ciclo', 'folha_ciclos'
   inflect.irregular 'crescimento', 'crescimentos'
+  inflect.irregular 'germinacao', 'germinacoes'
   inflect.irregular 'germinacao_tempo', 'germinacao_tempos'
   inflect.irregular 'germinacao_taxa', 'germinacao_taxas'
   inflect.irregular 'frutificacao', 'frutificacoes'
