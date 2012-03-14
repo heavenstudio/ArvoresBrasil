@@ -9,4 +9,16 @@ class NomePopular < ActiveRecord::Base
   
   has_many :arvore_nomes_populares, :order => :ordem
   has_many :arvores, :through => :arvore_nomes_populares
+
+
+
+
+  def self.search(search)
+    if search
+      find(:all, :conditions => ['nome LIKE ?', "#{search}%"])
+    else
+      find(:all)
+    end
+  end
+
 end

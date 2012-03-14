@@ -1,17 +1,12 @@
 module Admin
 class NomesPopularesController < BaseController
   def index
-    @nomes_populares = NomePopular.order('nome').paginate :page=> params['page'], :per_page=>30
-    respond_to do |format|
-      format.html # index.html.erb
-    end
+    #@nomes_populares = NomePopular.order('nome').paginate :page=> params['page'], :per_page=>30
+    @nomes_populares = NomePopular.order('nome').search(params[:search]).paginate :page=> params['page'], :per_page=>14
   end
 
   def new
     @nome_popular = NomePopular.new
-    respond_to do |format|
-      format.html # index.html.erb
-    end
   end
 
   def edit

@@ -1,9 +1,32 @@
 <h3>Admin - Nomes Populares</h3>
 
-<%= link_to 'Novo Nome Popular', new_admin_nome_popular_path %>
-</br></br>
 
 <table width="80%">
+
+
+	<tr>
+		<td>
+			<%= form_tag admin_nomes_populares_path, :method => 'get' do %>
+			  <p>
+			    <%= text_field_tag :search, params[:search], :size => 45 %>
+					<%= image_submit_tag("btn_search.png") %>
+			  </p>
+			<% end %>
+		</td>
+		<td align="right" >
+			<%= link_to image_tag("btn_new.png", :alt => "New"), new_admin_nome_popular_path %>
+		</td>
+	</tr>
+
+	<tr>
+		<td><br></td>
+	</tr>
+
+	<tr>
+		<td>NOME</td>	<td>EDIT</td> <td>DELETE</td>
+	</tr>
+
+
   <% for nome_popular in @nomes_populares %>
 	<tr>
       <td> <%=h nome_popular.nome %> </td>
