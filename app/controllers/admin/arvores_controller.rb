@@ -1,11 +1,9 @@
 module Admin
 class ArvoresController < BaseController
   def index
-    @arvores = Arvore.order('id').paginate :page=> params['page'], :per_page=>24
-    #@arvores = Arvore.all
-    respond_to do |format|
-      format.html # index.html.erb
-    end
+    #@arvores = Arvore.order('id').paginate :page=> params['page'], :per_page=>24
+    @arvores = Arvore.search(params[:searchNomePopular]).paginate :page=> params['page'], :per_page=>24
+    #@arvores = Arvore.find(:all, :from => :nomes_populares, :params => { :nome => 'pau-brasil' })
   end
 
   def show

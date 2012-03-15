@@ -1,14 +1,29 @@
 <%= stylesheet_link_tag "arvores" %>
 <h3>Admin - Árvores</h3>
 
-<%= link_to 'Nova', new_admin_arvore_path %>
+<table width="80%" border="0" cellspacing="0"  class="texto_peq" >
 
-<p>
-	<%= will_paginate @arvores %>
-</p>
+	<tr>
+		<td>
+			<%= form_tag admin_arvores_path, :method => 'get' do %>
+			  <p>
+			    <%= text_field_tag :searchNomePopular, params[:searchNomePopular], :size => 45 %>
+					<%= image_submit_tag("btn_search.png") %>
+			  </p>
+			<% end %>
+		</td>
+		<td align="right" >
+			<%= link_to image_tag("btn_new.png", :alt => "New"), new_admin_arvore_path %>
+		</td>
+	</tr>
 
+	<tr>
+		<td><br></td>
+	</tr>
+</table>
 
 <table width="80%" border="0" cellspacing="0"  class="texto_peq" >
+
 	<tr>
     <td class="list_top"> Cod </td> 
 		<td class="list_top"> Nome Popular </td>

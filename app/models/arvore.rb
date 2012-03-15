@@ -60,4 +60,12 @@ class Arvore < ActiveRecord::Base
   validates_presence_of :germinacao_taxa, :message => " - deve ser preenchido"
   validates_presence_of :germinacao_tempo, :message => " - deve ser preenchido"
 
+  def self.search(searchNomePopular)
+    if searchNomePopular
+      find(:all, :conditions => ['id LIKE ?', "#{searchNomePopular}%"])
+    else
+      find(:all)
+    end
+  end
+
 end
