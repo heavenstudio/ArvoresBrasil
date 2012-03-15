@@ -75,3 +75,5 @@ app/controllers/.DS_Store
 app/views/.DS_Store
 
 app/views/admin/.DS_Store
+
+app/.DS_Store
