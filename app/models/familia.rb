@@ -7,7 +7,8 @@ class Familia < ActiveRecord::Base
 
   def self.search(search)
     if search
-      find(:all, :conditions => ['nome LIKE ?', "#{search}%"])
+      #find(:all, :conditions => ['nome LIKE ?', "#{search}%"])      Rails 2
+      where("nome LIKE ?", "#{search}%")                            #Rails 3
     else
       find(:all)
     end
