@@ -1,5 +1,6 @@
 class Arvore < ActiveRecord::Base
 
+#IGNORED_ATTRS = Set[:id, :created_at, :created_on, :deleted_at, :updated_at, :updated_on, :deleted_on]
 
   has_many :arvore_nomes_populares, :order => :ordem
   has_many :nomes_populares, :through => :arvore_nomes_populares
@@ -14,9 +15,9 @@ class Arvore < ActiveRecord::Base
   has_many :partes, :through => :arvore_parte_caracteristicas#, :group => :parte_id #Muito maneiro isso !
   has_many :caracteristicas, :through => :arvore_parte_caracteristicas
 
-  #has_many :arvore_parte_produtos
+  has_many :arvore_parte_produtos
   #has_many :partes, :through => :arvore_parte_produtos, :group => :parte_id  #   ESTRAGA O DE CIMA !!!!! ???
-  #has_many :produtos, :through => :arvore_parte_produtos
+  has_many :produtos, :through => :arvore_parte_produtos
 
   has_many :arvore_condicoes
   has_many :condicoes, :through => :arvore_condicoes
@@ -61,10 +62,10 @@ class Arvore < ActiveRecord::Base
   validates_presence_of :germinacao_tempo, :message => " - deve ser preenchido"
 
   def self.search(searchNomePopular)
-    if searchNomePopular
-      find(:all, :conditions => ['id LIKE ?', "#{searchNomePopular}%"])
+    if searchNomePopular  
+      joins(:nomes_populares).where('nome LIKE ?', "%#{searchNomePopular}%") #Rails 3
     else
-      find(:all)
+      scoped
     end
   end
 

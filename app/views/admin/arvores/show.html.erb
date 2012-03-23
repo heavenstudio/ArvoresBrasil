@@ -25,19 +25,21 @@
 		<% end %>
 		</br>
 		<b>Florestal: </b>  xxxxx xxxxx </br>
-		<b>Sucessão: </b>  xxxxx xxxxx </br>
+		<b>Classe Sucessional: </b> </br>
+		<% @arvore.sucessoes.each do |sucessao| %>
+			Preferencia :: <%=h sucessao.nome %> <br>
+		<% end %>
+		</br>
 	</td></tr>
 </table>
 
 <table width="100%">
 	<tr><td width="50%" valign="top">
-		<h3>Medidas</h3>
+		<h3>				Medidas					</h3>
 		<b>Altura: </b>  de <%= @arvore.altura_minima %> à <%= @arvore.altura_maxima %> metros</br>
 		<b>DAP: </b>  de <%= @arvore.dap_minimo %> à <%= @arvore.dap_maximo %> centímetros</br>
 		<b>Copa: </b>  de <%= @arvore.copa_diametro_minimo %> à <%= @arvore.copa_diametro_maximo %> centímetros</br>
-		<b>Raiz: </b>  <%= @arvore.raiz.nome if @arvore.raiz %> 	
-		</br>
-
+		<b>Raiz: </b>  <%= @arvore.raiz.nome if @arvore.raiz %></br>
 	</td>
 	
 	<td width="50%" valign="top">
@@ -97,7 +99,10 @@
 	<td width="50%" valign="top"><h3>Extração</h3>
 		<table>
 			<tr><td>
-				<b>Extrações: </b>  xxxxx </br> xxxx xxxxx </br> xxxxx </br> xxxx xxxxx
+				<b>Extrações: </b></br>
+				<% @arvore.produtos.each do |produto| %>
+					Parte :: <%=h produto.nome %> </br>
+				<% end %>
 			</td></tr>
 		</table>
 	</td></tr>
