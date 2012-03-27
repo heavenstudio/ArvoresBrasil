@@ -1,5 +1,8 @@
 require 'spec_helper'
 
 describe Parte do
-  pending "add some examples to (or delete) #{__FILE__}"
+  context "relations" do
+    it { should have_many(:arvores) }
+    it { should have_many(:caracteristicas) }
+  end
 end
