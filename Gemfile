@@ -3,16 +3,9 @@ source 'http://rubygems.org'
 #gem 'rails', '3.1.0.rc8'
 gem 'rails', '3.2.0.rc2'
 
-
-# Bundle edge Rails instead:
-# gem 'rails',     :git => 'git://github.com/rails/rails.git'
-
-
 #gem 'mysql2', '0.3.6'
-gem 'mysql2', '0.3.10'
-
-
-#gem 'rake', '0.8.7'
+gem 'mysql2', '0.3.10', group: :production
+gem 'sqlite3', group: [:development, :test]
 
 gem "will_paginate", :git => 'git://github.com/wantful/will_paginate.git'
 
@@ -37,4 +30,8 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'capybara'
   gem 'database_cleaner'
+  gem 'shoulda-matchers'
+  gem 'guard-rspec'
+  gem 'growl'
+  gem 'simplecov', require: false
 end

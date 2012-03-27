@@ -41,16 +41,16 @@ ActiveRecord::Schema.define(:version => 20120104223313) do
     t.integer  "genero_id",               :null => false
     t.string   "especie",                 :null => false
     t.integer  "ordem",      :limit => 1
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",              :null => false
+    t.datetime "updated_at",              :null => false
   end
 
   create_table "arvore_nomes_populares", :id => false, :force => true do |t|
     t.integer  "arvore_id",                    :null => false
     t.integer  "nome_popular_id",              :null => false
     t.integer  "ordem",           :limit => 1
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                   :null => false
+    t.datetime "updated_at",                   :null => false
   end
 
   create_table "arvore_parte_caracteristicas", :id => false, :force => true do |t|
@@ -86,9 +86,9 @@ ActiveRecord::Schema.define(:version => 20120104223313) do
     t.integer  "sementes_kg",          :limit => 3
     t.integer  "sementes_viabilidade", :limit => 1
     t.text     "observacao"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "familia_id",                        :null => false
+    t.datetime "created_at",                        :null => false
+    t.datetime "updated_at",                        :null => false
+    t.integer  "familia_id"
     t.integer  "pais_id"
     t.integer  "raiz_id"
     t.integer  "crescimento_id"
@@ -145,7 +145,7 @@ ActiveRecord::Schema.define(:version => 20120104223313) do
   add_index "extincoes", ["nome"], :name => "index_extincoes_on_nome", :unique => true
 
   create_table "familias", :force => true do |t|
-    t.string "nome", :null => false
+    t.string "nome"
   end
 
   add_index "familias", ["nome"], :name => "index_familias_on_nome", :unique => true
@@ -198,8 +198,8 @@ ActiveRecord::Schema.define(:version => 20120104223313) do
 
   create_table "nomes_populares", :force => true do |t|
     t.string   "nome"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "paises", :force => true do |t|
